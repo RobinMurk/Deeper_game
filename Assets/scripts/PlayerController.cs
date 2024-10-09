@@ -8,12 +8,11 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 100f; 
     public float rotateSpeedInMilliseconds = 100f;
     public float stepCount = 3;
-    private Rigidbody rb;
     private bool moving = false;
+    private bool turning = false;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -23,6 +22,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleRotation(){
+        if(turning) return;
+
         // Rotate the player
         // Check if the "A" key is pressed (rotate left)
         if (Input.GetKeyDown(KeyCode.A))
@@ -62,36 +63,16 @@ public class PlayerController : MonoBehaviour
         float duration = moveSpeed;
         Vector3 targetPosition = transform.position + distance * transform.forward;
         while(elapsedTime < duration){
-            Debug.Log(elapsedTime);
             elapsedTime += Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
             yield return null;
         }
         moving = false;
-        /*// Lerp from the current position to the target position over time
-        float elapsedTime = 0f;
-        Vector3 startingPosition = rb.position;
-        Vector3 targetPosition = rb.position + distance * transform.forward;
-
-        while (elapsedTime < moveSpeed)
-        {
-            // Calculate the fraction of movement completed
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / moveSpeed;
-
-            // Smoothly interpolate to the target position
-            rb.MovePosition(Vector3.Lerp(startingPosition, targetPosition, t));
-
-            // Wait for the next frame
-            yield return null;
-        }
-
-        // Ensure the final position is set to the target position
-        rb.MovePosition(targetPosition);*/
     }
 
     private IEnumerator RotatePlayer(float totalRotation)
     {
+        turning = true;
         // Calculate the number of steps and the angle per step
         float anglePerStep = totalRotation / stepCount;
 
@@ -109,5 +90,6 @@ public class PlayerController : MonoBehaviour
             // Short pause after each step
             yield return new WaitForSeconds(rotationPauseDuration); // Pause between increments
         }
+        turning = false;
     }
 }

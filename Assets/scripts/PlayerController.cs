@@ -1,15 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveDistancePerKeyDown = 1f;
-    public float moveSpeed = 100f; 
+    public float moveDistancePerKeyDown = 2f;
+    public float moveSpeed = 1f; 
     public float rotateSpeedInMilliseconds = 100f;
-    public float stepCount = 3;
+    public float stepCount = 10;
     private bool moving = false;
-    private bool turning = false;
 
     void Start()
     {
@@ -22,7 +20,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleRotation(){
-        if(turning) return;
+        if(moving) return;
 
         // Rotate the player
         // Check if the "A" key is pressed (rotate left)
@@ -62,17 +60,29 @@ public class PlayerController : MonoBehaviour
         float elapsedTime = 0f;
         float duration = moveSpeed;
         Vector3 targetPosition = transform.position + distance * transform.forward;
+        /* Smooth movement
         while(elapsedTime < duration){
             elapsedTime += Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
             yield return null;
+        }
+        */
+        int steps = 10;
+        // move speed 1 = 1 unit in 1 second
+        float delay = moveSpeed / steps;
+        for (int i = 0; i < steps; i++)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * delay);
+
+            // Short pause after each step
+            yield return new WaitForSeconds(delay); // Pause between increments
         }
         moving = false;
     }
 
     private IEnumerator RotatePlayer(float totalRotation)
     {
-        turning = true;
+        moving = true;
         // Calculate the number of steps and the angle per step
         float anglePerStep = totalRotation / stepCount;
 
@@ -90,6 +100,6 @@ public class PlayerController : MonoBehaviour
             // Short pause after each step
             yield return new WaitForSeconds(rotationPauseDuration); // Pause between increments
         }
-        turning = false;
+        moving = false;
     }
 }

@@ -79,3 +79,7 @@ crashlytics-build.properties
 
 #UserSettings
 *UserSettings/
+
+#modular Dungeons import
+*Assets/Simple [Mm]odular [Dd]ungeon/
+*Assets/Simple [Mm]odular [Dd]ungeon.meta

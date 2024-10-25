@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +12,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryItem;
 
     public Toggle EnableRemove;
-
-    public InventoryItemController[] InventoryItems;
+    private const int MaxItems = 4;
 
     private void Awake()
     {
@@ -23,67 +21,52 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
+        if (Items.Count >= MaxItems)
+        {
+            Debug.Log("Inventory is full! Cannot add more items.");
+            return;
+        }
+
         Items.Add(item);
+
+        // Instantiate the item in the UI directly
+        GameObject obj = Instantiate(InventoryItem, ItemContent);
+        var itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
+        var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+        var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
+
+        itemName.text = item.itemName;
+        itemIcon.sprite = item.icon;
+
+        removeButton.gameObject.SetActive(EnableRemove.isOn);
+
+        // Add the item to the InventoryItemController directly
+        InventoryItemController itemController = obj.GetComponent<InventoryItemController>();
+        itemController.AddItem(item);
     }
 
     public void Remove(Item item)
     {
         Items.Remove(item);
-    }
 
-    public void ListItems()
-    {
-        //Clean Up
-        foreach (Transform item in ItemContent)
+        foreach (Transform child in ItemContent)
         {
-            Destroy(item.gameObject);
-        }
-
-        foreach (var item in Items)
-        {
-            GameObject obj = Instantiate(InventoryItem, ItemContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
-            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-            var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
-
-            itemName.text = item.itemName;
-            itemIcon.sprite = item.icon;
-
-            if (EnableRemove.isOn)
+            var itemController = child.GetComponent<InventoryItemController>();
+            if (itemController != null && itemController.GetItemId() == item.id)
             {
-                removeButton.gameObject.SetActive(true);
+                Destroy(child.gameObject);
+                break;
             }
         }
-
-        SetInventoryItems();
     }
 
     public void EnableItemsRemove()
     {
-        if (EnableRemove.isOn)
+        foreach (Transform item in ItemContent)
         {
-            foreach (Transform item in ItemContent)
-            {
-                item.Find("RemoveButton").gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            foreach (Transform item in ItemContent)
-            {
-                item.Find("RemoveButton").gameObject.SetActive(false);
-            }
-
-        }
-    }
-
-    public void SetInventoryItems()
-    {
-        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
-
-        for (int i = 0; i < Items.Count; i++)
-        {
-            InventoryItems[i].AddItem(Items[i]);
+            var removeButton = item.Find("RemoveButton").GetComponent<Button>();
+            if (removeButton != null)
+                removeButton.gameObject.SetActive(EnableRemove.isOn);
         }
     }
 }

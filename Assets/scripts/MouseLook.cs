@@ -11,7 +11,7 @@ public class MouseLook : MonoBehaviour
 
     bool lockedCursor = true;
 
-    
+
     void Start()
     {
         // Lock and Hide the Cursor
@@ -23,6 +23,10 @@ public class MouseLook : MonoBehaviour
     
     void Update()
     {
+        if (InventoryManager.Instance.IsInventoryOpen())
+        {
+            return;
+        }
         // Collect Mouse Input
 
         float inputX = Input.GetAxis("Mouse X")*mouseSensitivity;

@@ -12,11 +12,22 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryItem;
 
     public Toggle EnableRemove;
+    public GameObject Inventory;
     private const int MaxItems = 4;
+    private bool isInventoryOpen;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+        void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Toggle the canvas' enabled state
+            ToggleInventory();
+        }
     }
 
     public void Add(Item item)
@@ -68,5 +79,30 @@ public class InventoryManager : MonoBehaviour
             if (removeButton != null)
                 removeButton.gameObject.SetActive(EnableRemove.isOn);
         }
+    }
+
+    public void ToggleInventory()
+    {
+        isInventoryOpen = !isInventoryOpen;
+
+        // Show or hide the inventory UI
+        Inventory.SetActive(isInventoryOpen);
+
+        // Lock or unlock the cursor
+        if (isInventoryOpen)
+        {
+            Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+            Cursor.visible = true; // Show the cursor
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
+            Cursor.visible = false; // Hide the cursor
+        }
+    }
+
+    public bool IsInventoryOpen()
+    {
+        return isInventoryOpen; // Provide access to the inventory state
     }
 }

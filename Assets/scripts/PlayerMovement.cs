@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 1f;
+    public float playerSpeed = 3f;
     private CharacterController myCC;
 
     private Vector3 inputVector;
@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (InventoryManager.Instance.IsInventoryOpen())
+        {
+            return;
+        }
         GetInput();
         MovePlayer();
     }

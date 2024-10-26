@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathManager : MonoBehaviour
+public class Trigger : MonoBehaviour
 {
+    public Enemy Enemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,9 @@ public class PathManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        Enemy.SetAgro();
     }
 }

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2852375447677106746}
   - component: {fileID: 7177919025398628461}
-  - component: {fileID: 5404032027461706751}
+  - component: {fileID: 6541551959461429125}
+  - component: {fileID: 80337931447624975}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,14 +79,14 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 6.12, y: 4.08}
+  m_DrawMode: 1
+  m_Size: {x: 3, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5404032027461706751
+--- !u!114 &6541551959461429125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,6 +98,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36363fa42705ef5d79d8808d40650266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
-  MoveDistance: 3
-  Sprite: {fileID: 21300000, guid: 11bb38acb0639cbc4b1958937fca7db7, type: 3}
+  speed: 1
+  wanderRadius: 10
+  Player: {fileID: 0}
+--- !u!195 &80337931447624975
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604390028736744777}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 3.06
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 4.08
+  m_BaseOffset: 2.04
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    public float sensitivity = 4f;
-    public float smoothing = 1.5f;
+    // Variables
+    public Transform player;
+    public float mouseSensitivity = 2f;
+    float cameraVerticalRotation = 0f;
 
-    private float xMousePos;
-    private float smoothedMousePos;
+    bool lockedCursor = true;
 
-    private float currentLookingPos;
-
-    /*private void Start()
+    
+    void Start()
     {
+        // Lock and Hide the Cursor
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-    }*/
 
+    }
+
+    
     void Update()
     {
-        GetInput();
-        ModifyInput();
-        MovePlayer();
-    }
+        // Collect Mouse Input
 
-    void GetInput()
-    {
-        xMousePos = Input.GetAxisRaw("Mouse X");
-    }
+        float inputX = Input.GetAxis("Mouse X")*mouseSensitivity;
+        float inputY = Input.GetAxis("Mouse Y")*mouseSensitivity;
 
-    void ModifyInput()
-    {
-        xMousePos *= sensitivity * smoothing;
-        smoothedMousePos = Mathf.Lerp(smoothedMousePos, xMousePos, 1f / smoothing);
-    }
+        // Rotate the Camera around its local X axis
 
-    void MovePlayer()
-    {
-        currentLookingPos += smoothedMousePos;
-        transform.localRotation = Quaternion.AngleAxis(currentLookingPos, transform.up);
+        cameraVerticalRotation -= inputY;
+        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
+        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
+
+
+        // Rotate the Player Object and the Camera around its Y axis
+
+        player.Rotate(Vector3.up * inputX);
+       
     }
 }

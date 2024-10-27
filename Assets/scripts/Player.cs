@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public static Player Instance;
     public Camera MainCamera;
     private Collider ItemLookingAt;
+    public GameObject End;
+    public int ItemsPickedUp = 0;
 
     private void Awake()
     {
@@ -22,14 +24,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the "E" key is pressed
-        if(LookingAtItem() & Input.GetMouseButtonDown(0)){
-            InventoryManager.Instance.Add(ItemLookingAt.GetComponent<ItemController>().Item);
-            Destroy(ItemLookingAt.gameObject);
+
+        if(Input.GetMouseButtonDown(0)){
+            if(LookingAt("Item")){
+                InventoryManager.Instance.Add(ItemLookingAt.GetComponent<ItemController>().Item);
+                Destroy(ItemLookingAt.gameObject);
+                ItemsPickedUp++;
+                if(ItemsPickedUp == 2) Enemy.Instance.SetAgro();
+                if(ItemsPickedUp == 4) InventoryManager.Instance.OpenDoor();
+            } else if(LookingAt("Door") && ItemsPickedUp == 4){
+                EndGame();
+            }
         }
     }
 
-    private bool LookingAtItem(){
+    private void EndGame(){
+        End.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    private bool LookingAt(string LayerName){
         // Create a ray from the camera's position in the direction it's facing
         Ray ray = new Ray(MainCamera.transform.position, MainCamera.transform.forward);
         RaycastHit hit;
@@ -38,7 +52,7 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             // Check if the hit object's layer matches the target layer
-            if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Item"))
+            if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer(LayerName))
             {
                 ItemLookingAt = hit.collider;
                 return true;

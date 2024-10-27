@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public static Enemy Instance;
     public float speed = 1f; // Time between moves
     public float wanderRadius = 10f; // Radius to wander within
     public Player Player;
@@ -12,16 +13,20 @@ public class Enemy : MonoBehaviour
     private float PingDelay = 5f; 
     private float TimeSinceLastPing = 5f;
     private bool Agro = false;
+    private AudioSource audio;
 
     void Start()
     {
+        Instance = this;
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.speed = speed;
+        audio = GetComponent<AudioSource>();
         //InvokeRepeating(nameof(MoveToRandomPosition), 0f, moveInterval);
     }
 
     public void SetAgro(){
         Agro = true;
+        audio.Play();
     }
 
     void Update(){

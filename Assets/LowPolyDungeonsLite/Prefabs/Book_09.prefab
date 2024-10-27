@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 790091644018731292}
   - component: {fileID: 8731530462250995355}
   - component: {fileID: 6330741798576744626}
-  - component: {fileID: 5674272239811556718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Book_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,19 +117,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee47313277d7b044b977d952618e8fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: e7acfc5353ec35f4499431e78a421275, type: 2}
---- !u!114 &5674272239811556718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4957231571477918332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94616c536307e7c43be946163d587486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: e7acfc5353ec35f4499431e78a421275, type: 2}

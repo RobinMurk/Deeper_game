@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7177919025398628461}
   - component: {fileID: 6541551959461429125}
   - component: {fileID: 80337931447624975}
-  - component: {fileID: 5153625587942056797}
+  - component: {fileID: 6141535459137228627}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -124,7 +124,7 @@ NavMeshAgent:
   m_BaseOffset: 2.04
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!82 &5153625587942056797
+--- !u!82 &6141535459137228627
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,15 +134,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7a5e31987ca73fc45809dd561dce68d0, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
+  m_audioClip: {fileID: 8300000, guid: fbb4a7983a81eb842b7aa40c87396c89, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.573
+  m_Pitch: 0.55
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 65
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -180,7 +180,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

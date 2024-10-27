@@ -15,16 +15,14 @@ public class InventoryManager : MonoBehaviour
     public GameObject Inventory;
     private const int MaxItems = 4;
     private bool isInventoryOpen;
-    private AudioSource audio;
 
     private void Awake()
     {
         Instance = this;
-        audio = GetComponent<AudioSource>();
     }
 
     public void OpenDoor(){
-        audio.Play();
+        FindObjectOfType<AudioManager>().Play("DoorOpen");
     }
 
         void Update()

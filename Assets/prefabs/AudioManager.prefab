@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &25152404919657641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8012878603151831745}
+  - component: {fileID: 5412677051692074930}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8012878603151831745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25152404919657641}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5412677051692074930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25152404919657641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b4250f1cdc8c5418ebd24013d685cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: WalkingStone
+    clip: {fileID: 8300000, guid: 790bba3d341f9f84d86097d8fe59e116, type: 3}
+    volume: 0.167
+    pitch: 0.84
+    source: {fileID: 0}
+    loop: 0
+  - name: PickupSound
+    clip: {fileID: 8300000, guid: bbde007a9cb4fb64288d610fb16b6887, type: 3}
+    volume: 0.795
+    pitch: 0.9
+    source: {fileID: 0}
+    loop: 0
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: c146862db39958b52b6a320a7ecd6850, type: 3}
+    volume: 0.154
+    pitch: 0.1
+    source: {fileID: 0}
+    loop: 0
+  - name: EnemySound
+    clip: {fileID: 8300000, guid: 7a5e31987ca73fc45809dd561dce68d0, type: 3}
+    volume: 0.622
+    pitch: 0.4
+    source: {fileID: 0}
+    loop: 0
+  - name: BackgroundDrone1
+    clip: {fileID: 8300000, guid: 975bfca2e03323242987b6d9a8faca4d, type: 3}
+    volume: 1
+    pitch: 0.51
+    source: {fileID: 0}
+    loop: 1

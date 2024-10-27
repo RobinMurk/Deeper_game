@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,19 +14,25 @@ public class Enemy : MonoBehaviour
     private float PingDelay = 5f; 
     private float TimeSinceLastPing = 5f;
     private bool Agro = false;
-    private AudioSource audio;
 
     void Start()
     {
         Instance = this;
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.speed = speed;
-        audio = GetComponent<AudioSource>();
         //InvokeRepeating(nameof(MoveToRandomPosition), 0f, moveInterval);
     }
 
     public void SetAgro(){
         Agro = true;
+        FindObjectOfType<AudioManager>().Stop("BackgroundDrone1");
+        //FindObjectOfType<AudioManager>().Play("EnemySound");
+        PlayBreathing();
+    }
+
+    private void PlayBreathing()
+    {
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
     }
 

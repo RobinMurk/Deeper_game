@@ -18,10 +18,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (InventoryManager.Instance.IsInventoryOpen())
-        {
-            return;
-        }
         GetInput();
         MovePlayer();
     }

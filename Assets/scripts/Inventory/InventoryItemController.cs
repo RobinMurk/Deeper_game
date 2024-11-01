@@ -7,7 +7,6 @@ public class InventoryItemController : MonoBehaviour
 {
     Item item;
 
-    public Button RemoveButton;
 
     public void RemoveItem()
     {

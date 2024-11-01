@@ -27,13 +27,19 @@ public class Player : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0)){
             if(LookingAt("Item")){
-                InventoryManager.Instance.Add(ItemLookingAt.GetComponent<ItemController>().Item);
-                Destroy(ItemLookingAt.gameObject);
-                FindObjectOfType<AudioManager>().Play("PickupSound");
-                ItemsPickedUp++;
-                if(ItemsPickedUp == 2) Enemy.Instance.SetAgro();
-                if(ItemsPickedUp == 4) InventoryManager.Instance.OpenDoor();
-            } else if(LookingAt("Door") && ItemsPickedUp == 4){
+                if (!InventoryManager.Instance.IsInventoryFull)
+                {
+                    InventoryManager.Instance.Add(ItemLookingAt.GetComponent<ItemController>().Item);
+                    Destroy(ItemLookingAt.gameObject);
+                    FindObjectOfType<AudioManager>().Play("PickupSound");
+                    ItemsPickedUp++;
+                    /*if (ItemsPickedUp == 2) Enemy.Instance.SetAgro();
+                    if (ItemsPickedUp == 4) InventoryManager.Instance.OpenDoor();*/
+                    if (ItemsPickedUp == 1) Enemy.Instance.SetAgro();
+                    if (ItemsPickedUp == 1) InventoryManager.Instance.OpenDoor();
+
+                }
+            } else if(LookingAt("Door") && ItemsPickedUp == 1){
                 EndGame();
             }
         }

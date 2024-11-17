@@ -47,8 +47,8 @@ MonoBehaviour:
   Items: []
   ItemContent: {fileID: 0}
   InventoryItem: {fileID: 4677839487208339915, guid: 0e63ff67da1e51e4890be52a19863878, type: 3}
-  EnableRemove: {fileID: 0}
   Inventory: {fileID: 0}
+  IsInventoryFull: 0
 --- !u!1 &2444763227539619345
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 8965644513152162995}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

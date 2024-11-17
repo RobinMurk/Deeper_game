@@ -9,39 +9,46 @@ public class Player : MonoBehaviour
     public Camera MainCamera;
     private Collider ItemLookingAt;
     public GameObject End;
-    public int ItemsPickedUp = 0;
+   
+    private GameObject itemInRange;
+    private GameObject pillarInRange;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-
-        if(Input.GetMouseButtonDown(0)){
-            if(LookingAt("Item")){
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(LookingAt("Item") && itemInRange != null)
+            {
                 if (!InventoryManager.Instance.IsInventoryFull)
                 {
                     InventoryManager.Instance.Add(ItemLookingAt.GetComponent<ItemController>().Item);
                     Destroy(ItemLookingAt.gameObject);
                     FindObjectOfType<AudioManager>().Play("PickupSound");
-                    ItemsPickedUp++;
-                    /*if (ItemsPickedUp == 2) Enemy.Instance.SetAgro();
-                    if (ItemsPickedUp == 4) InventoryManager.Instance.OpenDoor();*/
-                    if (ItemsPickedUp == 1) Enemy.Instance.SetAgro();
-                    if (ItemsPickedUp == 1) InventoryManager.Instance.OpenDoor();
-
                 }
-            } else if(LookingAt("Door") && ItemsPickedUp == 1){
+            } else if(LookingAt("Door") && levelMaster.Instance.IsLevelComplete()){
                 EndGame();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && pillarInRange != null)
+        {
+            PlaceBookOnPillar();
+        }
+    }
+
+    private void PlaceBookOnPillar()
+    {
+        var pillar = pillarInRange.GetComponent<Piller>();
+        if (pillar != null && InventoryManager.Instance.IsInventoryFull)
+        {
+            InventoryManager.Instance.Remove();
+            pillar.PlaceBook();
         }
     }
 
@@ -66,5 +73,29 @@ public class Player : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("Book")) // Check if it’s an Book
+        {
+            itemInRange = collider.gameObject;
+        }
+        else if (collider.gameObject.CompareTag("Pillar")) // Check if it's a pillar
+        {
+            pillarInRange = collider.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject == itemInRange)
+        {
+            itemInRange = null;
+        }
+        else if (collider.gameObject == pillarInRange)
+        {
+            pillarInRange = null;
+        }
     }
 }

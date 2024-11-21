@@ -27,10 +27,10 @@ public class MouseLook : MonoBehaviour
     
     void Update()
     {
-        /*if (InventoryManager.Instance.IsInventoryOpen())
+        if (GameSettings.Instance != null)
         {
-            return;
-        }*/
+            mouseSensitivity = GameSettings.Instance.mouseSensitivity;
+        }
         // Collect Mouse Input
 
         float inputX = Input.GetAxis("Mouse X")*mouseSensitivity;
@@ -48,9 +48,11 @@ public class MouseLook : MonoBehaviour
         player.Rotate(Vector3.up * inputX);
        
     }
-
-    public void SetMouseSensitivity(float sensitivity)
+    public void UpdateSensitivity()
     {
-        mouseSensitivity = sensitivity;
+        if (GameSettings.Instance != null)
+        {
+            mouseSensitivity = GameSettings.Instance.mouseSensitivity;
+        }
     }
 }

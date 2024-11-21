@@ -8,7 +8,7 @@ public class Piller : MonoBehaviour
     public GameObject book;
     public event Action OnBookPlaced;
 
-    private bool bookPlaced = false;
+    public bool bookPlaced = false;
 
     private void Start()
     {

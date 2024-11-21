@@ -10,12 +10,33 @@ public class GameSettings : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Make persistent across scenes
+            DontDestroyOnLoad(gameObject);
+
+            // Load the saved sensitivity value or set a default
+            mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 2f);
         }
         else
         {
-            Destroy(gameObject); // Avoid duplicates
+            Destroy(gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            // Save the sensitivity value when the game exits or the object is destroyed
+            PlayerPrefs.SetFloat("MouseSensitivity", mouseSensitivity);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public static void DestroyGameSettings()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+            Instance = null;
         }
     }
 }
-

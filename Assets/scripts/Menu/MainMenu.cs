@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
+        GameSettings.DestroyGameSettings();
         SceneManager.LoadScene("MVP");
     }
 

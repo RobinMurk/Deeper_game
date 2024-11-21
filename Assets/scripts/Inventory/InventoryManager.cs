@@ -27,10 +27,8 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
-        Debug.Log(Items.Count);
         if (Items.Count >= MaxItems)
         {
-            Debug.Log("Inventory is full! Cannot add more items.");
             IsInventoryFull = true;
             return;
         }
@@ -41,10 +39,8 @@ public class InventoryManager : MonoBehaviour
         GameObject obj = Instantiate(InventoryItem, ItemContent);
         var itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
         var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-
         itemName.text = item.itemName;
         itemIcon.sprite = item.icon;
-
 
         // Add the item to the InventoryItemController directly
         InventoryItemController itemController = obj.GetComponent<InventoryItemController>();
@@ -56,18 +52,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void Remove(Item item)
+    public void Remove()
     {
-        Items.Remove(item);
-
         foreach (Transform child in ItemContent)
         {
-            var itemController = child.GetComponent<InventoryItemController>();
-            if (itemController != null && itemController.GetItemId() == item.id)
-            {
-                Destroy(child.gameObject);
-                break;
-            }
+            Destroy(child.gameObject);
         }
+        Items = new List<Item>();
+        IsInventoryFull = false;
     }
 }

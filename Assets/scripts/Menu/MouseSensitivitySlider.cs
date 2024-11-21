@@ -22,6 +22,13 @@ public class MouseSensitivitySlider : MonoBehaviour
         if (GameSettings.Instance != null)
         {
             GameSettings.Instance.mouseSensitivity = value; // Save to GameSettings
+
+            // Apply the sensitivity immediately if MouseLook is present
+            MouseLook mouseLook = FindObjectOfType<MouseLook>();
+            if (mouseLook != null)
+            {
+                mouseLook.UpdateSensitivity();
+            }
         }
     }
 }

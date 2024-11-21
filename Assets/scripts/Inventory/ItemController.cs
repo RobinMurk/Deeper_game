@@ -20,7 +20,8 @@ public class ItemController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-            isPlayerInRange = true;
+        isPlayerInRange = true;
+
             //EnableGlow(); // Start glowing
             if (flickerCoroutine == null)
                 flickerCoroutine = StartCoroutine(FlickerGlow());
@@ -28,13 +29,13 @@ public class ItemController : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-            if (flickerCoroutine != null)
-            {
-                   StopCoroutine(flickerCoroutine);
-                flickerCoroutine = null;
-            }
+        if (flickerCoroutine != null)
+        {
+            StopCoroutine(flickerCoroutine);
+            flickerCoroutine = null;
+        }
         isPlayerInRange = false;
-            DisableGlow();
+        DisableGlow();
         
     }
 

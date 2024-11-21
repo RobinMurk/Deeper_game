@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3599862927119794941}
   - component: {fileID: 482651621415751537}
+  - component: {fileID: 7653005314559501468}
+  - component: {fileID: 7139128179651378471}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,3 +47,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 2
+--- !u!114 &7653005314559501468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084411503858552526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222ad2cd0f37cae4a8f28e4e8ed84ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 0}
+--- !u!114 &7139128179651378471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084411503858552526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b6e87addf6d6b4dafd635acb6d5bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public Camera MainCamera;
     private Collider ItemLookingAt;
     public GameObject End;
-   
+    public GameObject Pop;
+    public TMPro.TextMeshProUGUI PopupText;
+
     private GameObject itemInRange;
     private GameObject pillarInRange;
 
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F))
         {
             if(LookingAt("Item") && itemInRange != null)
             {
@@ -31,21 +33,41 @@ public class Player : MonoBehaviour
                     Destroy(ItemLookingAt.gameObject);
                     FindObjectOfType<AudioManager>().Play("PickupSound");
                 }
-            } else if(LookingAt("Door") && levelMaster.Instance.IsLevelComplete()){
+            }
+            else if (pillarInRange != null ){
+                PlaceBookOnPillar();
+            }
+            else if(LookingAt("Door") && levelMaster.Instance.IsLevelComplete()){
                 EndGame();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && pillarInRange != null)
+        if (pillarInRange != null)
         {
-            PlaceBookOnPillar();
+            PopupText.text = "Place book ('F')";
+            Pop.SetActive(true);
+        }
+        else if (itemInRange != null)
+        {
+            PopupText.text = "Pick up ('F')";
+            Pop.SetActive(true);
+        }
+        else if (LookingAt("Door") && levelMaster.Instance.IsLevelComplete())
+        {
+            PopupText.text = "Next level ('F')";
+            Pop.SetActive(true);
+        }
+        else
+        {
+            PopupText.text =  "";
+            Pop.SetActive(false);
         }
     }
 
     private void PlaceBookOnPillar()
     {
         var pillar = pillarInRange.GetComponent<Piller>();
-        if (pillar != null && InventoryManager.Instance.IsInventoryFull)
+        if (pillar != null && InventoryManager.Instance.IsInventoryFull && !pillar.bookPlaced)
         {
             InventoryManager.Instance.Remove();
             pillar.PlaceBook();

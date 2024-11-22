@@ -84,17 +84,24 @@ public class Player : MonoBehaviour
             }
             else if (interactableObjectLayerName == "Pillar" ){
                 PlaceBookOnPillar(interactableObject);
+                Pop.SetActive(false);
             }
             else if(interactableObjectLayerName == "Door" && levelMaster.Instance.IsLevelComplete()){
                 EndGame();
+                Pop.SetActive(false);
             }
             else if(interactableObjectLayerName == "Torch"){
                 var torch = interactableObject.GetComponent<Torch>();
-                Debug.Log(torch);
-                if(handLight.currentIntensity > 0.2f){
-                    torch.TurnOnOff();
+                if (torch != null)
+                {
+                    // Specify the fluid cost when turning on
+                    float fluidCost = 0.2f; // Adjust the cost value as needed
+                    torch.TurnOnOff(fluidCost);
                 }
-                handLight.DecreaseIntensity(0.2f);
+            }
+            else if (interactableObjectLayerName == "Fluid")
+            {
+                PickupFluid(interactableObject);
             }
         }
 
@@ -104,9 +111,15 @@ public class Player : MonoBehaviour
             return;
         }
         string interactableObjectLayerName2 = LayerMask.LayerToName(interactableObject.layer);
-        if(interactableObjectLayerName2 == "Pillar"){
-            PopupText.text = "Place book ('F')";
-            Pop.SetActive(true);
+        if(interactableObjectLayerName2 == "Pillar")
+        {
+            var pillar = interactableObject.GetComponent<Piller>();
+            if (!pillar.bookPlaced) // Ensure the book isn't already placed
+            {
+                PopupText.text = "Place book ('F')";
+                Pop.SetActive(true);
+            }
+            
         }
         else if (interactableObjectLayerName2 == "Item")
         {
@@ -122,6 +135,11 @@ public class Player : MonoBehaviour
             PopupText.text = "Interact F";
             Pop.SetActive(true);
         }
+        else if (interactableObjectLayerName2 == "Fluid")
+        {
+            PopupText.text = "Interact F";
+            Pop.SetActive(true);
+        }
     }
 
     private void PlaceBookOnPillar(GameObject Pillar)
@@ -132,6 +150,11 @@ public class Player : MonoBehaviour
             InventoryManager.Instance.Remove();
             pillar.PlaceBook();
         }
+    }
+    private void PickupFluid(GameObject fluidPickup)
+    {
+        LighterFluidManager.Instance.AddLighterFluid(2f);
+        Destroy(fluidPickup);
     }
 
     private void EndGame(){

@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources.meta
 guid: 96edfa322f88eddd3bc50b778f9d72c4
 folderAsset: yes
 DefaultImporter:
+========
+guid: 55a03721f788a394faf6872766681d42
+PrefabImporter:
+>>>>>>>> bc3079bfa2befcf0fbdd6144d1ee15ecb6b163c5:Assets/Prefabs/Book.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

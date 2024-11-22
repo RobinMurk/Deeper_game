@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Enemy.meta
 guid: eb98c8cfdff98d5a0b8f2f6bc9b36da0
 folderAsset: yes
 DefaultImporter:
+========
+guid: 7a9a9b0c53d87ec4b8647a1afd3f4fae
+PrefabImporter:
+>>>>>>>> bc3079bfa2befcf0fbdd6144d1ee15ecb6b163c5:Assets/Prefabs/GameManager.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

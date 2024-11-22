@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pillar
   - Book
-  - Fire
+  - Pillar
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -17,7 +17,7 @@ TagManager:
   - Wall
   - Item
   - Door
-  - 
+  - Pillar
   - 
   - 
   - 

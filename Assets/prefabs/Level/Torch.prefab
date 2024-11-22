@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4971310683438727550}
+  - component: {fileID: 5828468727625848140}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 7259598597437823022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &5828468727625848140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995685504096170098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73af46fd80753b941b7bf34a2c1b6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireParent: {fileID: 4606641490939811006}
 --- !u!1 &8536184200721527569
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_Torch_Parent
       objectReference: {fileID: 0}
+    - target: {fileID: 7183553855393488263, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+      propertyPath: m_TagString
+      value: Fire
+      objectReference: {fileID: 0}
     - target: {fileID: 8632762978127712626, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
       propertyPath: m_Intensity
       value: 0.7
@@ -204,5 +222,10 @@ PrefabInstance:
 --- !u!4 &1191037233522771467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5537283635842207538, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+  m_PrefabInstance: {fileID: 6656047762378246457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4606641490939811006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7183553855393488263, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
   m_PrefabInstance: {fileID: 6656047762378246457}
   m_PrefabAsset: {fileID: 0}

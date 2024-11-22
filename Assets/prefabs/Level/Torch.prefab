@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4971310683438727550}
   - component: {fileID: 5828468727625848140}
-  m_Layer: 0
+  - component: {fileID: 2103522868343982947}
+  m_Layer: 10
   m_Name: Torch
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +47,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireParent: {fileID: 4606641490939811006}
+--- !u!136 &2103522868343982947
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995685504096170098}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Height: 0.31
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.72, z: 0.18}
 --- !u!1 &8536184200721527569
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +186,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7259598597437823022}
     m_Modifications:
+    - target: {fileID: 758249524779751364, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730074263542334518, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5537283635842207538, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -202,13 +234,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6470549833601996427, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7183553855393488263, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
       propertyPath: m_Name
       value: Fire_Torch_Parent
       objectReference: {fileID: 0}
     - target: {fileID: 7183553855393488263, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183553855393488263, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
       propertyPath: m_TagString
       value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263436451256919797, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683272320781719239, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8632762978127712626, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
       propertyPath: m_Range

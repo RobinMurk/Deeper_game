@@ -341,6 +341,7 @@ MonoBehaviour:
   End: {fileID: 0}
   Pop: {fileID: 0}
   PopupText: {fileID: 0}
+  handLight: {fileID: 4215855570491568222}
 --- !u!114 &4610118199946419493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,3 +492,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IntensityDelay: 10
   IntensityAmmountToRemove: 0.05
+  currentIntensity: 0

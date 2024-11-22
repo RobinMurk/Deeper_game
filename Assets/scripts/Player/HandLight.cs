@@ -10,6 +10,7 @@ public class HandLight : MonoBehaviour
     [Range(0, 0.3f)]
     public float IntensityAmmountToRemove;
     private float InternalTime;
+    public float currentIntensity;
 
     private void Awake() {
         IntensityDelay = 10f;   //10 seconds
@@ -20,6 +21,7 @@ public class HandLight : MonoBehaviour
     {
         if(GetLight() != null){
             GetLight().intensity = 2;
+            currentIntensity = GetLight().intensity;
         }
 
         InternalTime = Time.time + IntensityDelay;
@@ -42,6 +44,7 @@ public class HandLight : MonoBehaviour
         if(lightSource != null && lightSource.intensity != 0){
             lightSource.intensity -= ammount;
             InternalTime += IntensityDelay;
+            currentIntensity = lightSource.intensity;
         }
     }
     public Light GetLight(){

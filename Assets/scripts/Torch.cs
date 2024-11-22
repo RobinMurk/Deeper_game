@@ -6,12 +6,14 @@ using UnityEngine;
 public class Torch : MonoBehaviour
 {
     public GameObject FireParent;
+    private bool isActive;
 
     private void Awake() {
-
+        isActive = false;
     }
 
     public void TurnOnOff(){
-        FireParent.gameObject.SetActive(!FireParent.gameObject.activeSelf);
+        FireParent.gameObject.SetActive(isActive);
+        isActive = !isActive;
     }
 }

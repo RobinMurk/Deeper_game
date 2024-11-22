@@ -1,36 +1,24 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using CleverCrow.Fluid.BTs.Tasks;
 using CleverCrow.Fluid.BTs.Trees;
-using UnityEditor;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class MyCustomAi : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public float range = 5f;
-    public Transform centerPoint;
+    public float range = 10f;
     private bool HasLineOfSight;
+    public Waypoint StartingWaypoint;
+    private Waypoint CurrentWaypoint;
+    private Waypoint NextWaypoint;
     [SerializeField]
     private BehaviorTree _tree;
-    
-    private bool RandomPoint(Transform center, float range, out Vector3 result)
-    {
-        Vector3 randomPoint = center.position + Random.insideUnitSphere * range;
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
-        {
-            result = hit.position;
-            return true;
-        }
-        result = Vector3.zero;
-        return false;
-    }
+
     
     void MoveTowardsPlayer(float distance, float stalkDistance)
     {
+        /*
         // Get the direction from the agent to the player
         Vector3 directionToPlayer = (Player.Instance.transform.position - agent.transform.position).normalized;
         float distanceFromPlayer = Vector3.Distance(agent.transform.position, Player.Instance.transform.position);
@@ -42,7 +30,15 @@ public class MyCustomAi : MonoBehaviour
         Vector3 destination = agent.transform.position + directionToPlayer * distance;
 
         // Set the destination for the NavMeshAgent
-        agent.SetDestination(destination);
+        agent.SetDestination(destination);*/
+        agent.SetDestination(Player.Instance.transform.position);
+    }
+
+    void MoveToNextWaypoint(){
+        CurrentWaypoint = NextWaypoint;
+        Debug.Log(CurrentWaypoint);
+        NextWaypoint = CurrentWaypoint.GetWaypoint();
+        agent.SetDestination(NextWaypoint.transform.position);
     }
 
     private bool PlayerInSight()
@@ -63,14 +59,15 @@ public class MyCustomAi : MonoBehaviour
     
     private void Awake ()
     {
-        bool moving = false;
+        CurrentWaypoint = StartingWaypoint;
+        NextWaypoint = StartingWaypoint;
         agent = GetComponent<NavMeshAgent>();
         _tree = new BehaviorTreeBuilder(gameObject)
             .Selector()
                 .Sequence()
                     .Condition("NoLineOfSight", () =>
                     {
-                    if (!EventListener.Instance.Stalk && !EventListener.Instance.Attack) return false;
+                        if (!EventListener.Instance.Stalk && !EventListener.Instance.Attack) return false;
                         if (PlayerInSight())
                         {
                             return false;
@@ -88,18 +85,12 @@ public class MyCustomAi : MonoBehaviour
                         //Debug.Log("condition lol");
                         if (EventListener.Instance.Stalk) return false;
                         if (EventListener.Instance.Attack) return false;
+                        if(agent.remainingDistance > agent.stoppingDistance) return false;
                         return true;
                     })
-                    .Do("Custom Action", () => {
-                        if (agent.remainingDistance <= agent.stoppingDistance)
-                        {
-                            Vector3 point;
-                            if (RandomPoint(centerPoint, range, out point))
-                            {
-                                //Debug.DrawRay(point, Vector3.up, Color.red, 1.0f);
-                                agent.SetDestination(point);
-                            }
-                        }
+                    .WaitTime(5f)
+                    .Do("Roam", () => {
+                        MoveToNextWaypoint();
                         return TaskStatus.Success;
                     })
                 .End()

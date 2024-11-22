@@ -22,12 +22,13 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         Sprite holdSprite = Resources.Load<Sprite>("hold");
+        Pop.SetActive(false);
 
         if (holdSprite != null)
         {
             // Create a new UI Image in the scene
             GameObject holdImageObject = new GameObject("HoldImage");
-            holdImageObject.transform.SetParent(GameObject.Find("Canvas").transform); // Ensure it's a child of the Canvas
+            holdImageObject.transform.SetParent(GameObject.Find("UI").transform); // Ensure it's a child of the Canvas
         
             holdImage = holdImageObject.AddComponent<Image>();
             holdImage.sprite = holdSprite;
@@ -144,7 +145,7 @@ public class Player : MonoBehaviour
 
     private void PlaceBookOnPillar(GameObject Pillar)
     {
-        var pillar = Pillar.GetComponent<Piller>();
+        Piller pillar = Pillar.GetComponent<Piller>();
         if (pillar != null && InventoryManager.Instance.IsInventoryFull && !pillar.bookPlaced)
         {
             InventoryManager.Instance.Remove();

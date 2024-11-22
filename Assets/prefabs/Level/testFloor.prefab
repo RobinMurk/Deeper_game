@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4652810943711392325}
   - component: {fileID: 5517176097917510177}
   - component: {fileID: 6319479472852154416}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor Plain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1443525242067907695}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: testFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

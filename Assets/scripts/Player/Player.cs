@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.CompareTag("Book")) // Check if it’s an Book
+        if (collider.gameObject.CompareTag("Book")) // Check if itï¿½s an Book
         {
             itemInRange = collider.gameObject;
         }

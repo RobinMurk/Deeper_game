@@ -211,6 +211,10 @@ PrefabInstance:
       value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 8632762978127712626, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
+      propertyPath: m_Range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632762978127712626, guid: f62b31a3464faf14f934e38f9ee55eba, type: 3}
       propertyPath: m_Intensity
       value: 0.7
       objectReference: {fileID: 0}

@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     private Collider ItemLookingAt;
     public GameObject End;
     public int ItemsPickedUp = 0;
-    public LayerMask interactableLayer;
     private Image holdImage;
     private void Awake()
     {
@@ -34,6 +33,7 @@ public class Player : MonoBehaviour
             rectTransform.anchorMin = new Vector2(0.5f, 0.5f); // Set anchor to middle
             rectTransform.anchorMax = new Vector2(0.5f, 0.5f); // Set anchor to middle
             rectTransform.pivot = new Vector2(0.5f, 0.5f); // Set pivot to center
+            holdImage.enabled = false;
         }
         else
         {
@@ -77,14 +77,16 @@ public class Player : MonoBehaviour
         RaycastHit hit;
 
         // Only show the holdImage if the ray hits something within 2 units on the interactable layer
-        if (Physics.Raycast(ray, out hit, 2f, interactableLayer))
+        if (Physics.Raycast(ray, out hit, 2f))
         {
+            if (!hit.collider.CompareTag("Interactable"))
+            {
+                holdImage.enabled = false;
+                return;
+            }
             holdImage.enabled = true;
         }
-        else
-        {
-            holdImage.enabled = false;
-        }
+
     }
 
     private void EndGame(){

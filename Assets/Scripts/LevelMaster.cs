@@ -31,7 +31,6 @@ public class levelMaster : MonoBehaviour
         if (isLevelComplete) return;
 
         booksPlacedCount++;
-        Enemy.Instance.SetAgro();
         CheckLevelCompletion();
     }
 

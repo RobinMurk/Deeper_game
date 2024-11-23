@@ -14,7 +14,7 @@ public class HandLight : MonoBehaviour
 
     private void Awake() {
         IntensityDelay = 10f;   //10 seconds
-        IntensityAmmountToRemove = 0.05f;
+        IntensityAmmountToRemove = 0.1f;
     }
     // Start is called before the first frame update
     void Start()
@@ -63,5 +63,31 @@ public class HandLight : MonoBehaviour
     }
     public Light GetLight(){
         return gameObject.GetComponentInChildren<Light>();
+    }
+
+    public void ApplyFluidEffect(LighterFluid fluid)
+    {
+        Light lightSource = GetLight();
+
+        if (lightSource != null)
+        {
+            switch (fluid.fluidType)
+            {
+                case LighterFluid.FluidType.Yellow:
+                    IntensityDelay = 10f;
+                    lightSource.intensity = 2f;
+                    break;
+
+                case LighterFluid.FluidType.Blue:
+                    IntensityDelay = 5f;
+                    lightSource.intensity = 4f;
+                    break;
+
+                case LighterFluid.FluidType.Green:
+                    IntensityDelay = 15;
+                    lightSource.intensity = 1f;
+                    break;
+            }
+        }
     }
 }

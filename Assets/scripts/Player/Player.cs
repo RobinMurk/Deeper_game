@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -102,7 +103,9 @@ public class Player : MonoBehaviour
             }
             else if (interactableObjectLayerName == "Fluid")
             {
-                PickupFluid(interactableObject);
+                LighterFluid lighterFluid = interactableObject.GetComponent<LighterFluid>();
+                LighterFluidManager.Instance.UseFluid(lighterFluid);
+                Destroy(interactableObject);
             }
         }
 
@@ -151,11 +154,6 @@ public class Player : MonoBehaviour
             InventoryManager.Instance.Remove();
             pillar.PlaceBook();
         }
-    }
-    private void PickupFluid(GameObject fluidPickup)
-    {
-        LighterFluidManager.Instance.AddLighterFluid(2f);
-        Destroy(fluidPickup);
     }
 
     private void EndGame(){

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Optional reference to the Pause Menu Canvas
+    public GameObject LighterFluidBar;
+    public GameObject Inventory;
     private bool isPaused = false; // Tracks whether the game is paused
 
     void Update()
@@ -27,8 +29,9 @@ public class PauseManager : MonoBehaviour
     {
         // Return early if no Pause Menu UI is assigned
         if (pauseMenuUI == null) return;
-        
 
+        LighterFluidBar.SetActive(false);
+        Inventory.SetActive(false);
         Time.timeScale = 0; // Freeze the game
         isPaused = true;
 
@@ -42,6 +45,8 @@ public class PauseManager : MonoBehaviour
         // Return early if no Pause Menu UI is assigned
         if (pauseMenuUI == null) return;
 
+        LighterFluidBar.SetActive(true);
+        Inventory.SetActive(true);
         Time.timeScale = 1; // Resume the game
         isPaused = false;
 

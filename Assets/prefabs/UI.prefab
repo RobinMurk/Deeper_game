@@ -274,8 +274,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 12eaceb7341922b4398ff20c8bbcff90, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -417,14 +417,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.5294118, b: 0, a: 1}
+  m_Color: {r: 0.9348427, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 485cd2ab0486a8e4aaa55e94ec27c6b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12eaceb7341922b4398ff20c8bbcff90, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2545,7 +2545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
+  m_AnchoredPosition: {x: 1, y: 0}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4115175841509062902
@@ -2744,6 +2744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 5435251828461611615}
   healthAmount: 2
+  handLight: {fileID: 0}
 --- !u!1 &4868776087575645665
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,8 +2819,8 @@ RectTransform:
   - {fileID: 770818705480229991}
   - {fileID: 4349241549705137955}
   - {fileID: 8674572980306246311}
-  - {fileID: 7424573139622178991}
   - {fileID: 7498703271510116581}
+  - {fileID: 7424573139622178991}
   - {fileID: 8975073276671850199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3123,14 +3124,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 12eaceb7341922b4398ff20c8bbcff90, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4408,9 +4409,17 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 7653005314559501468, guid: 7a9a9b0c53d87ec4b8647a1afd3f4fae, type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 1545425185952951622}
+    - target: {fileID: 7653005314559501468, guid: 7a9a9b0c53d87ec4b8647a1afd3f4fae, type: 3}
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 3643904115712268118}
+    - target: {fileID: 7653005314559501468, guid: 7a9a9b0c53d87ec4b8647a1afd3f4fae, type: 3}
+      propertyPath: LighterFluidBar
+      value: 
+      objectReference: {fileID: 5651546388694275658}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

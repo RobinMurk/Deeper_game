@@ -59,7 +59,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
   - name: DoorOpen
-    clip: {fileID: 8300000, guid: c146862db39958b52b6a320a7ecd6850, type: 3}
+    clip: {fileID: 8300000, guid: 035bd04ad512abf45bef5ab812fccc73, type: 3}
     volume: 0.154
     pitch: 0.1
     source: {fileID: 0}
@@ -77,8 +77,8 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 1
   - name: GateOpening
-    clip: {fileID: 8300000, guid: 3f808b3d417832948968d6a7936a8e23, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 035bd04ad512abf45bef5ab812fccc73, type: 3}
+    volume: 0.555
     pitch: 0.51
     source: {fileID: 0}
     loop: 0

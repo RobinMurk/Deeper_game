@@ -16,7 +16,7 @@ public class GateDoor : MonoBehaviour
     private void Start() {
         Instance = this;
         currentPos = Gate.transform.position;
-        openPos = new Vector3(currentPos.x,currentPos.y + 30 ,currentPos.z);
+        openPos = new Vector3(currentPos.x,currentPos.y - 30 ,currentPos.z);
 
 
     }
@@ -38,7 +38,9 @@ public class GateDoor : MonoBehaviour
 
     public void OpenGate(){
         startOpening = true;
-        Gate.GetComponent<BoxCollider2D>().isTrigger = true;
+        //Gate.GetComponent<BoxCollider2D>().isTrigger = true;
+        //temp
+        Gate.gameObject.SetActive(false);
         FindObjectOfType<AudioManager>().Play("GateOpening");
     }
 }

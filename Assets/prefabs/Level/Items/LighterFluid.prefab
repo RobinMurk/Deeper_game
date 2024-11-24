@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fluidType: 2
-  fluidAmount: 0.5
+  fluidAmount: 2

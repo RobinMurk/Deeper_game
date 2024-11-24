@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public static Player Instance;
     public Camera MainCamera;
     private Collider ItemLookingAt;
-    public GameObject End;
     public GameObject Pop;
     public TMPro.TextMeshProUGUI PopupText;
     public HandLight handLight;
@@ -89,8 +88,8 @@ public class Player : MonoBehaviour
                 Pop.SetActive(false);
             }
             else if(interactableObjectLayerName == "Door" && levelMaster.Instance.IsLevelComplete()){
-                EndGame();
                 Pop.SetActive(false);
+                levelMaster.Instance.LoadNextLevel();
             }
             else if(interactableObjectLayerName == "Torch"){
                 var torch = interactableObject.GetComponent<Torch>();
@@ -154,10 +153,5 @@ public class Player : MonoBehaviour
             InventoryManager.Instance.Remove();
             pillar.PlaceBook();
         }
-    }
-
-    private void EndGame(){
-        End.SetActive(true);
-        Time.timeScale = 0;
     }
 }

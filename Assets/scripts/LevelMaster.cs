@@ -10,7 +10,7 @@ public class levelMaster : MonoBehaviour
     private bool isLevelComplete = false;
 
     public GameObject WinView;
-    public GameObject Gate;
+
     private void Awake()
     {
         Instance = this;
@@ -46,19 +46,12 @@ public class levelMaster : MonoBehaviour
             isLevelComplete = true;
             Debug.Log("Level Complete! All books have been placed.");
             GateDoor.Instance.OpenGate();
-            OpenDoor();
         }
     }
 
     public bool IsLevelComplete()
     {
         return isLevelComplete;
-    }
-
-    private void OpenDoor()
-    {
-        Gate.SetActive(false);
-        //FindObjectOfType<AudioManager>().Play("DoorOpen");
     }
 
     public void LoadNextLevel()

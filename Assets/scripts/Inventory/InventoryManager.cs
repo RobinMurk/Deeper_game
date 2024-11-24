@@ -20,11 +20,6 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
     }
 
-    public void OpenDoor(){
-        FindObjectOfType<AudioManager>().Play("DoorOpen");
-    }
-
-
     public void Add(Item item)
     {
         if (Items.Count >= MaxItems)

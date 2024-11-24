@@ -6,6 +6,7 @@ public class RestartManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
-        SceneManager.LoadScene("MVP");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level_1");
     }
 }

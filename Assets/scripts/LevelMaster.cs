@@ -8,6 +8,9 @@ public class levelMaster : MonoBehaviour
     private Piller[] pillars;         // Array to hold all pillars in the level
     private int booksPlacedCount = 0; // Counter for books placed on pillars
     private bool isLevelComplete = false;
+
+    public GameObject WinView;
+    public GameObject Gate;
     private void Awake()
     {
         Instance = this;
@@ -42,12 +45,24 @@ public class levelMaster : MonoBehaviour
         {
             isLevelComplete = true;
             Debug.Log("Level Complete! All books have been placed.");
-            InventoryManager.Instance.OpenDoor();
+            OpenDoor();
         }
     }
 
     public bool IsLevelComplete()
     {
         return isLevelComplete;
+    }
+
+    private void OpenDoor()
+    {
+        Gate.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("DoorOpen");
+    }
+
+    public void LoadNextLevel()
+    {
+        WinView.SetActive(true);
+        WinManager.Instance.WinLevel();
     }
 }

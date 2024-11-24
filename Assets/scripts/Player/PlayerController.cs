@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +25,10 @@ public class PlayerController : MonoBehaviour
 
         if (isWalking && !forwardPressed){
             animator.SetBool(walkingHash, false);
+        }
+        if (Input.GetKeyDown(KeyCode.E)){
+            HandLight.Instance.LightOn = !HandLight.Instance.LightOn;
+            HandLight.Instance.TurnOnOff();
         }
     }
 }

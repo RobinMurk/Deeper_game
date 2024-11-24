@@ -76,6 +76,12 @@ MonoBehaviour:
     pitch: 0.51
     source: {fileID: 0}
     loop: 1
+  - name: GateOpening
+    clip: {fileID: 8300000, guid: 3f808b3d417832948968d6a7936a8e23, type: 3}
+    volume: 1
+    pitch: 0.51
+    source: {fileID: 0}
+    loop: 0
 --- !u!114 &8405422621660737206
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ public class levelMaster : MonoBehaviour
         {
             isLevelComplete = true;
             Debug.Log("Level Complete! All books have been placed.");
+            GateDoor.Instance.OpenGate();
             OpenDoor();
         }
     }
@@ -57,7 +58,7 @@ public class levelMaster : MonoBehaviour
     private void OpenDoor()
     {
         Gate.SetActive(false);
-        FindObjectOfType<AudioManager>().Play("DoorOpen");
+        //FindObjectOfType<AudioManager>().Play("DoorOpen");
     }
 
     public void LoadNextLevel()

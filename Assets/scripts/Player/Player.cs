@@ -119,28 +119,28 @@ public class Player : MonoBehaviour
             var pillar = interactableObject.GetComponent<Piller>();
             if (!pillar.bookPlaced) // Ensure the book isn't already placed
             {
-                PopupText.text = "Place book ('F')";
+                PopupText.text = "Place book (F)";
                 Pop.SetActive(true);
             }
             
         }
         else if (interactableObjectLayerName2 == "Item")
         {
-            PopupText.text = "Pick up ('F')";
+            PopupText.text = "Pick up (F)";
             Pop.SetActive(true);
         }
         else if (interactableObjectLayerName2 == "Door" && levelMaster.Instance.IsLevelComplete())
         {
-            PopupText.text = "Next level ('F')";
+            PopupText.text = "Next level (F)";
             Pop.SetActive(true);
         }
         else if(interactableObjectLayerName2 == "Torch"){
-            PopupText.text = "Interact F";
+            PopupText.text = "Interact (F)";
             Pop.SetActive(true);
         }
         else if (interactableObjectLayerName2 == "Fluid")
         {
-            PopupText.text = "Interact F";
+            PopupText.text = "Interact (F)";
             Pop.SetActive(true);
         }
     }

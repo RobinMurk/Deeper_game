@@ -71,5 +71,8 @@ public class levelMaster : MonoBehaviour
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         Cursor.visible = true; // Show the cursor
         GameObject.Find("UI").transform.Find("DeathView").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.Find("LighterFluidBar ").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.Find("Inventory ").gameObject.SetActive(false);
+
     }
 }

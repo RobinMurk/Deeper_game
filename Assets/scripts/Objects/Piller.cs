@@ -19,7 +19,6 @@ public class Piller : MonoBehaviour
     {
         if (!bookPlaced)
         {
-            Debug.Log("placed");
             FindObjectOfType<AudioManager>().Play("PickupSound");
             book.SetActive(true); // Show the book on the pillar
             bookPlaced = true; // Mark the book as placed to prevent multiple triggers

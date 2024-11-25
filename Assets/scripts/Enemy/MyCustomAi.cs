@@ -85,15 +85,14 @@ public class MyCustomAi : MonoBehaviour
                     })
                 .End()
                 .Sequence()
-                    .Condition("IsRoaming", () => {
-                        //Debug.Log("condition lol");
+                    .Condition("CheckNextWaypoint", () => {
                         if (EventListener.Instance.Stalk) return false;
                         if (EventListener.Instance.Attack) return false;
-                        if(agent.remainingDistance > agent.stoppingDistance) return false;
+                        if(agent.remainingDistance > 0.1) return false;
                         return true;
                     })
                     .WaitTime(5f)
-                    .Do("Roam", () => {
+                    .Do("GoToNextWaypoint", () => {
                         MoveToNextWaypoint();
                         return TaskStatus.Success;
                     })

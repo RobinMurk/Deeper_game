@@ -154,4 +154,10 @@ public class Player : MonoBehaviour
             pillar.PlaceBook();
         }
     }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.layer != 15) return;
+        levelMaster.Instance.Lose();
+    }
+
 }

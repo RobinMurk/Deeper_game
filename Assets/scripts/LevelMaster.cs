@@ -16,6 +16,10 @@ public class levelMaster : MonoBehaviour
         Instance = this;
     }
 
+    public int booksCount(){
+        return booksPlacedCount;
+    }
+
     private void Start()
     {
         // Find all Pillar objects in the scene
@@ -29,6 +33,7 @@ public class levelMaster : MonoBehaviour
     }
 
     // This method is called whenever a book is placed on a pillar
+    // FIXME: Üks piller kutsub seda funktsiooni kaks korda
     private void HandleBookPlaced()
     {
         if (isLevelComplete) return;
@@ -58,5 +63,13 @@ public class levelMaster : MonoBehaviour
     {
         WinView.SetActive(true);
         WinManager.Instance.WinLevel();
+    }
+
+    public void Lose()
+    {
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+        Cursor.visible = true; // Show the cursor
+        GameObject.Find("UI").transform.Find("DeathView").gameObject.SetActive(true);
     }
 }

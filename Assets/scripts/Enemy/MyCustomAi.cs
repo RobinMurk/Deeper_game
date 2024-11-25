@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class MyCustomAi : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    public static NavMeshAgent agent;
     public float range = 10f;
     private bool HasLineOfSight;
     public Waypoint StartingWaypoint;
@@ -14,6 +14,7 @@ public class MyCustomAi : MonoBehaviour
     private Waypoint NextWaypoint;
     [SerializeField]
     private BehaviorTree _tree;
+    public static Animator animator;
 
     
     void MoveTowardsPlayer(float distance, float stalkDistance)
@@ -31,12 +32,14 @@ public class MyCustomAi : MonoBehaviour
 
         // Set the destination for the NavMeshAgent
         agent.SetDestination(destination);*/
+        if(agent.remainingDistance <= 3){
+            
+        }
         agent.SetDestination(Player.Instance.transform.position);
     }
 
     void MoveToNextWaypoint(){
         CurrentWaypoint = NextWaypoint;
-        Debug.Log(CurrentWaypoint);
         NextWaypoint = CurrentWaypoint.GetWaypoint();
         agent.SetDestination(NextWaypoint.transform.position);
     }
@@ -59,6 +62,7 @@ public class MyCustomAi : MonoBehaviour
     
     private void Awake ()
     {
+        animator = GetComponent<Animator>();
         CurrentWaypoint = StartingWaypoint;
         NextWaypoint = StartingWaypoint;
         agent = GetComponent<NavMeshAgent>();
@@ -134,5 +138,5 @@ public class MyCustomAi : MonoBehaviour
     private void Update () {
         // Update our tree every frame
         _tree.Tick();
-    }
+    }   
 }

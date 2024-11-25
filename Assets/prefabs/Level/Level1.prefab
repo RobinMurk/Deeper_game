@@ -1228,6 +1228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint B3
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.078531
@@ -1278,6 +1282,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
   m_PrefabInstance: {fileID: 700007721163481188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7791583564149334475 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 700007721163481188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &805273456222013276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1458,6 +1473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint R5
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.9214687
@@ -1519,6 +1538,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
   m_PrefabInstance: {fileID: 923597721979129429}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7586007444232556538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 923597721979129429}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1094257774415743625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2193,6 +2223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint B1
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.9214687
@@ -2237,6 +2271,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 5495235304921256307}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1007341467111465501}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 8722648447271238863}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 436540704592752010, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -2254,6 +2304,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
   m_PrefabInstance: {fileID: 1964485069054164342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9139191687281016025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 1964485069054164342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1994615817329330427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2398,6 +2459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint B4
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.126296
@@ -2438,6 +2503,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 9139191687281016025}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 7791583564149334475}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 5232406555752902157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2448,6 +2529,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
   m_PrefabInstance: {fileID: 2061166643574783328}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8722648447271238863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 2061166643574783328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2265599277227864782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3218,6 +3310,10 @@ PrefabInstance:
     - target: {fileID: 397183874234661637, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_Name
       value: tunnelTjunction
+      objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint R3
       objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4008,6 +4104,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2509224757960869529}
     m_Modifications:
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 844196843600779309}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 3447557241683175330}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 373921400200051657}
     - target: {fileID: 5846218679116051736, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
@@ -4060,6 +4172,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8432340945512595114, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: m_Name
+      value: Waypoint L3
+      objectReference: {fileID: 0}
     - target: {fileID: 8824222041226275782, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
       propertyPath: m_Name
       value: tunnelJunction
@@ -4078,6 +4194,17 @@ PrefabInstance:
       addedObject: {fileID: 39647054581266327}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+--- !u!114 &3489483549887607138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+  m_PrefabInstance: {fileID: 3124464037807885418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8826390705077401970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5846218679116051736, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
@@ -4251,6 +4378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint B6
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.126296
@@ -4295,11 +4426,38 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 5914594205047455753}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 7586007444232556538}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 8722648447271238863}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+--- !u!114 &5232406555752902157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 3245565507621744546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7554054908194478760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -4316,6 +4474,10 @@ PrefabInstance:
     - target: {fileID: 397183874234661637, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_Name
       value: tunnelTjunction (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint R2
       objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4373,6 +4535,17 @@ PrefabInstance:
       addedObject: {fileID: 669732191156058866}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+--- !u!114 &5437953169791657046 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 3377931926789318137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7727938885867393267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -5155,6 +5328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint B5
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.873704
@@ -5199,6 +5376,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 5232406555752902157}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 7791583564149334475}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 436540704592752010, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -5211,6 +5400,17 @@ PrefabInstance:
       addedObject: {fileID: 6120978098594053261}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+--- !u!114 &5914594205047455753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 4000167061441364390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8240609817670579372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -6551,6 +6751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint R4
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.078531
@@ -7338,6 +7542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint L2
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.126296
@@ -7394,6 +7602,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
   m_PrefabInstance: {fileID: 5354641021332858381}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3447557241683175330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 5354641021332858381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5402464427725604003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8469,6 +8688,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2301691678412822198}
     m_Modifications:
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 844196843600779309}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 3447557241683175330}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 373921400200051657}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1390364369306012242}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 5437953169791657046}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 9139191687281016025}
+    - target: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 1007341467111465501}
     - target: {fileID: 5846218679116051736, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.48011
@@ -8509,6 +8760,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8432340945512595114, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+      propertyPath: m_Name
+      value: Waypoint C
+      objectReference: {fileID: 0}
     - target: {fileID: 8824222041226275782, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
       propertyPath: m_Name
       value: tunnelJunction
@@ -8523,6 +8778,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5846218679116051736, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
   m_PrefabInstance: {fileID: 6301537349580844155}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5495235304921256307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1959472313872891144, guid: 4de3c2afc895e824fa3b549855e71b3f, type: 3}
+  m_PrefabInstance: {fileID: 6301537349580844155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6357423587161420667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9211,6 +9477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint L4
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.873704
@@ -9255,6 +9525,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 3489483549887607138}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 844196843600779309}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 5495235304921256307}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 436540704592752010, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -9267,6 +9553,17 @@ PrefabInstance:
       addedObject: {fileID: 1548307888588897599}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+--- !u!114 &373921400200051657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 6964747693508360806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2699966697611120492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -9843,6 +10140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint B2
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.0785313
@@ -9887,11 +10188,38 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 9139191687281016025}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 7791583564149334475}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 5495235304921256307}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+--- !u!114 &1007341467111465501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 7524781681458111410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3292854095141590712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -10085,6 +10413,10 @@ PrefabInstance:
     - target: {fileID: 397183874234661637, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_Name
       value: tunnelTjunction (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoiint R6
       objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10495,6 +10827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint L1
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.126296
@@ -10539,12 +10875,43 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 5495235304921256307}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 3447557241683175330}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 3489483549887607138}
+    - target: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: AdjacentWaypoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 373921400200051657}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 436540704592752010, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+--- !u!114 &844196843600779309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 7935516431121832322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3170369684243311752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
@@ -11145,6 +11512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelTjunction
       objectReference: {fileID: 0}
+    - target: {fileID: 838635390465671693, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+      propertyPath: m_Name
+      value: Waypoint R1
+      objectReference: {fileID: 0}
     - target: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.126296
@@ -11194,6 +11565,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+--- !u!114 &1390364369306012242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320511756246073775, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}
+  m_PrefabInstance: {fileID: 8564790612501859325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3676005914943536887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5035011499869320458, guid: fb407ed95b1bbcc4e979e284f4adbc98, type: 3}

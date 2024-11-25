@@ -22,12 +22,17 @@ public class EventListener : MonoBehaviour
 
     public void Interact()
     {
-        if (Stalk)
+        if (levelMaster.Instance.booksCount() > 1)
         {
+            MyCustomAi.agent.stoppingDistance = 0f;
+            MyCustomAi.animator.SetBool("stalk", false);
+            MyCustomAi.animator.SetBool("hunt", true);
             Attack = true;
             Stalk = false;
             return;
         }
+        MyCustomAi.animator.SetBool("stalk", true);
+        MyCustomAi.agent.stoppingDistance = 3f;
         Stalk = true;
     }
 

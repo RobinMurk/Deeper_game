@@ -4,25 +4,27 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - MBS:Floor
-  - MBS:Wall
+  - Book
+  - Pillar
+  - Interactable
+  - Fire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Item
+  - Door
+  - Pillar
+  - Torch
+  - Fluid
+  - Gate
+  - GateWall
+  - Player
+  - Enemy
   - 
   - 
   - 

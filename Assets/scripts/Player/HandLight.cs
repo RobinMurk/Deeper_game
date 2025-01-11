@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -16,8 +17,8 @@ public class HandLight : MonoBehaviour
 
     private void Awake() {
         Instance = this;
-        IntensityDelay = 10f;   //10 seconds
-        IntensityAmmountToRemove = 0.1f;
+        IntensityDelay = 0.1f;   //0.5 seconds
+        IntensityAmmountToRemove = 0.001f;
     }
     // Start is called before the first frame update
     void Start()
@@ -34,16 +35,23 @@ public class HandLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= InternalTime && LightOn){
+        if (Time.time >= InternalTime && LightOn){
             DecreaseIntensity(IntensityAmmountToRemove);
-        }
-        if(!LightOn){
-            TurnOnOff();
         }
     }
 
     public void TurnOnOff(){
-        gameObject.SetActive(!gameObject.activeSelf);
+
+        if(gameObject.activeSelf) // Turn Off
+        {
+            gameObject.SetActive(!gameObject.activeSelf);
+        }
+        else // Turn On
+        {
+            gameObject.SetActive(!gameObject.activeSelf);
+            InternalTime = Time.time + IntensityDelay;
+        }
+        
     }
 
     public void DecreaseIntensity(float amount)
@@ -54,6 +62,7 @@ public class HandLight : MonoBehaviour
             // Check if enough lighter fluid is available
             if (LighterFluidManager.Instance.healthAmount > 0)
             {
+                gameObject.SetActive(true);
                 lightSource.intensity -= amount;
                 LighterFluidManager.Instance.UseLighterFluid(amount);
                 InternalTime += IntensityDelay;
@@ -81,17 +90,17 @@ public class HandLight : MonoBehaviour
             switch (fluid.fluidType)
             {
                 case LighterFluid.FluidType.Yellow:
-                    IntensityDelay = 10f;
+                    IntensityAmmountToRemove = 0.001f;
                     lightSource.intensity = 2f;
                     break;
 
                 case LighterFluid.FluidType.Blue:
-                    IntensityDelay = 5f;
+                    IntensityAmmountToRemove = 0.002f;
                     lightSource.intensity = 4f;
                     break;
 
                 case LighterFluid.FluidType.Green:
-                    IntensityDelay = 15;
+                    IntensityAmmountToRemove = 0.0005f;
                     lightSource.intensity = 1f;
                     break;
             }

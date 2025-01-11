@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(walkingHash, false);
         }
         if (Input.GetKeyDown(KeyCode.E)){
-            HandLight.Instance.LightOn = !HandLight.Instance.LightOn;
             HandLight.Instance.TurnOnOff();
         }
     }

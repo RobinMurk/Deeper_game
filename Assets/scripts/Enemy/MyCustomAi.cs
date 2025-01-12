@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using CleverCrow.Fluid.BTs.Tasks;
 using CleverCrow.Fluid.BTs.Trees;
@@ -15,6 +16,8 @@ public class MyCustomAi : MonoBehaviour
     [SerializeField]
     private BehaviorTree _tree;
     public static Animator animator;
+    private Vector3 lastKnowPositionOfPlayer;
+    private float _wanderRadius = 30f;
 
     
     void MoveTowardsPlayer(float distance, float stalkDistance)
@@ -85,7 +88,9 @@ public class MyCustomAi : MonoBehaviour
                     })
                 .End()
                 .Sequence()
-                    .Condition("CheckNextWaypoint", () => {
+                    .Condition("CheckNextWaypoint", () =>
+                    {
+                        if (EventListener.Instance.Investigate) return false;
                         if (EventListener.Instance.Stalk) return false;
                         if (EventListener.Instance.Attack) return false;
                         if(agent.remainingDistance > 0.1) return false;
@@ -130,6 +135,50 @@ public class MyCustomAi : MonoBehaviour
                     return TaskStatus.Success;
                 })
                 .End()
+            .Sequence()
+                .Condition("InvestigateMovement", () =>
+                {
+                    if (agent.remainingDistance < 0.1f)
+                    {
+                        EventListener.Instance.CheckArea();
+                    }
+                    return !EventListener.Instance.InvestigateArea &&
+                           EventListener.Instance.Investigate;
+                })
+                .Do("Investigate", () =>
+                {
+                    agent.SetDestination(lastKnowPositionOfPlayer);
+                    return TaskStatus.Success;
+                })
+                .End()
+            .Sequence()
+                .Condition("InvestigateAroundMovementArea", () =>
+                {
+                    return !EventListener.Instance.BackToPatrol(Time.deltaTime) && 
+                           EventListener.Instance.InvestigateArea;
+                })
+                .Do("CheckArea", () =>
+                {
+                    if (agent.remainingDistance <= agent.stoppingDistance) //done with path
+                    {
+                        Vector3 randomDirection = Random.insideUnitSphere * _wanderRadius;
+                        randomDirection += transform.position;
+                        randomDirection.y = transform.position.y;
+                        NavMeshHit hit;
+                        bool navMeshHit = false;
+                        while (!navMeshHit)
+                        {
+                            if (NavMesh.SamplePosition(randomDirection, out hit, _wanderRadius, NavMesh.AllAreas))
+                            {
+                                agent.SetDestination(hit.position);
+                                navMeshHit = true;
+                            }
+                        }
+                    }
+
+                    return TaskStatus.Success;
+                })
+                .End()
             .End()
             .Build();
     }
@@ -137,5 +186,20 @@ public class MyCustomAi : MonoBehaviour
     private void Update () {
         // Update our tree every frame
         _tree.Tick();
-    }   
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "DetectionRadius")
+        {
+            EventListener.Instance.HeardNoise();
+            lastKnowPositionOfPlayer = Player.Instance.transform.position;
+        };
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == "DetectionRadius")
+            lastKnowPositionOfPlayer = Player.Instance.transform.position;
+    }
 }

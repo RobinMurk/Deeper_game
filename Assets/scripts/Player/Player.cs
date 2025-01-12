@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public GameObject Pop;
     public TMPro.TextMeshProUGUI PopupText;
     public HandLight handLight;
+    public float playerSpeed = 3f;
+    public GameObject Detection;
 
     private GameObject itemInRange;
     private GameObject pillarInRange;

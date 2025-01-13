@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     int walkingHash;
     private SphereCollider sphereCollider;
     AudioManager audioManager;
+    private bool crouching;
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+            crouching = !crouching;
+        
         bool forwardPressed = Input.GetKey("w")
             | Input.GetKey("s")
             | Input.GetKey("a")
@@ -38,16 +42,22 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(walkingHash, true);
             isWalking = true;
         }
-
-        if (isWalking && forwardPressed && shiftPressed)
+        
+        if (isWalking && crouching)
+        {
+            Player.Instance.playerSpeed = 0.5f;
+            sphereCollider.radius = 3f;
+        }
+        else if (isWalking && forwardPressed && shiftPressed)
         {
             Player.Instance.playerSpeed = 6f;
-            sphereCollider.radius = 50f;
+            sphereCollider.radius = 40f;
         } else if (isWalking && forwardPressed)
         {
             Player.Instance.playerSpeed = 3f;
-            sphereCollider.radius = 30f;
-        } else {
+            sphereCollider.radius = 20f;
+        }
+        else {
             sphereCollider.radius = 1f;
             animator.SetBool(walkingHash, false);
         }

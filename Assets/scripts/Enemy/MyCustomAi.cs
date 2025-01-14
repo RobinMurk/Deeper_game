@@ -11,7 +11,7 @@ public class MyCustomAi : MonoBehaviour
     public float range = 10f;
     private bool HasLineOfSight;
     public Waypoint StartingWaypoint;
-    private Waypoint CurrentWaypoint;
+    public Waypoint CurrentWaypoint;
     private Waypoint NextWaypoint;
     [SerializeField]
     private BehaviorTree _tree;
@@ -186,6 +186,45 @@ public class MyCustomAi : MonoBehaviour
     private void Update () {
         // Update our tree every frame
         _tree.Tick();
+        spawnCloserToPlayer(10f, 10f);
+    }
+
+    /// <summary>
+    /// Spawns an enemy at the farthest checkpoint within a given radius.
+    /// </summary>
+    /// <param name="outOfBoundsDistance">The distance at which the enemy is considered out of bounds and will be respawned closer.</param>
+    /// <param name="spawnDistance">The radius within which to search for checkpoints to spawn the enemy.</param>
+    public void spawnCloserToPlayer(float outOfBoundsDistance, float spawnDistance)
+    {   
+        if ((Player.Instance.transform.position - transform.position).magnitude < outOfBoundsDistance) return;
+        Collider[] hitColliders = Physics.OverlapSphere(Player.Instance.transform.position, spawnDistance, LayerMask.GetMask("Checkpoint"));
+        if (hitColliders.Length == 0)
+        {
+            Debug.LogWarning("No checkpoints found within the specified radius.");
+            return;
+        }
+
+        Collider farthestCheckpoint = null;
+        float maxDistance = 0f;
+        Debug.Log(hitColliders.Length);
+        foreach (Collider checkpoint in hitColliders)
+        {
+            Debug.Log(checkpoint.name);
+            float distance = Vector3.Distance(Player.Instance.transform.position, checkpoint.transform.position);
+            if (distance > maxDistance)
+            {
+                maxDistance = distance;
+                farthestCheckpoint = checkpoint;
+            }
+        }
+
+        // Spawn the enemy at the farthest checkpoint
+        if (farthestCheckpoint != null)
+        {
+            transform.position = farthestCheckpoint.transform.position;
+            CurrentWaypoint = farthestCheckpoint.gameObject.GetComponent<Waypoint>();
+            Debug.Log($"Enemy spawned at checkpoint: {farthestCheckpoint.name}");
+        }
     }
 
     private void OnTriggerEnter(Collider other)

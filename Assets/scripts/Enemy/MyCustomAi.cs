@@ -186,7 +186,6 @@ public class MyCustomAi : MonoBehaviour
     private void Update () {
         // Update our tree every frame
         _tree.Tick();
-        spawnCloserToPlayer(10f, 10f);
     }
 
     /// <summary>

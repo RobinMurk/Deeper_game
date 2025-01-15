@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -159,4 +161,19 @@ public class Player : MonoBehaviour
         levelMaster.Instance.Lose();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "WarnPlayerRadius")
+        {
+            handLight.enemyApproaching(true);
+        };
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "WarnPlayerRadius")
+        {
+            handLight.enemyApproaching(false);
+        };
+    }
 }

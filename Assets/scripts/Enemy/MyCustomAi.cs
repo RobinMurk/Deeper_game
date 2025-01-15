@@ -228,7 +228,12 @@ public class MyCustomAi : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "DetectionRadius")
+        if (other.gameObject.CompareTag("Torch"))
+        {
+            Torch torch = other.gameObject.GetComponent<Torch>();
+            torch.Extinguish();
+        }
+        else if (other.gameObject.name == "DetectionRadius")
         {
             EventListener.Instance.HeardNoise();
             lastKnowPositionOfPlayer = Player.Instance.transform.position;

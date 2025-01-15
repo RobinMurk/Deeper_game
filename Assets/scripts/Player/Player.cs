@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,8 @@ public class Player : MonoBehaviour
     public GameObject Pop;
     public TMPro.TextMeshProUGUI PopupText;
     public HandLight handLight;
+    public float playerSpeed = 3f;
+    public GameObject Detection;
 
     private GameObject itemInRange;
     private GameObject pillarInRange;
@@ -52,7 +56,7 @@ public class Player : MonoBehaviour
         RaycastHit hit;
 
         // Only show the holdImage if the ray hits something within 2 units on the interactable layer
-        if (Physics.Raycast(ray, out hit, 2f))
+        if (Physics.Raycast(ray, out hit, 2f) && !PauseManager.Instance.IsPaused())
         {
             if (hit.collider.CompareTag("Interactable"))
             {
@@ -110,7 +114,7 @@ public class Player : MonoBehaviour
             return;
         }
         string interactableObjectLayerName2 = LayerMask.LayerToName(interactableObject.layer);
-        if(interactableObjectLayerName2 == "Pillar")
+        if(interactableObjectLayerName2 == "Pillar" && !PauseManager.Instance.IsPaused())
         {
             var pillar = interactableObject.GetComponent<Piller>();
             if (!pillar.bookPlaced) // Ensure the book isn't already placed
@@ -120,21 +124,22 @@ public class Player : MonoBehaviour
             }
             
         }
-        else if (interactableObjectLayerName2 == "Item")
+        else if (interactableObjectLayerName2 == "Item" && !PauseManager.Instance.IsPaused())
         {
             PopupText.text = "Pick up (F)";
             Pop.SetActive(true);
         }
-        else if (interactableObjectLayerName2 == "Door" && levelMaster.Instance.IsLevelComplete())
+        else if (interactableObjectLayerName2 == "Door" && levelMaster.Instance.IsLevelComplete() && !PauseManager.Instance.IsPaused())
         {
             PopupText.text = "Next level (F)";
             Pop.SetActive(true);
         }
-        else if(interactableObjectLayerName2 == "Torch"){
+        else if(interactableObjectLayerName2 == "Torch" && !PauseManager.Instance.IsPaused())
+        {
             PopupText.text = "Interact (F)";
             Pop.SetActive(true);
         }
-        else if (interactableObjectLayerName2 == "Fluid")
+        else if (interactableObjectLayerName2 == "Fluid" && !PauseManager.Instance.IsPaused())
         {
             PopupText.text = "Interact (F)";
             Pop.SetActive(true);
@@ -156,4 +161,19 @@ public class Player : MonoBehaviour
         levelMaster.Instance.Lose();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "WarnPlayerRadius")
+        {
+            handLight.enemyApproaching(true);
+        };
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "WarnPlayerRadius")
+        {
+            handLight.enemyApproaching(false);
+        };
+    }
 }

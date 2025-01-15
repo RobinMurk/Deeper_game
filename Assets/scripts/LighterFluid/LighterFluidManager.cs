@@ -34,15 +34,15 @@ public class LighterFluidManager : MonoBehaviour
         switch (fluid.fluidType)
         {
             case LighterFluid.FluidType.Yellow:
-                Debug.Log("Red fluid used: Extra bright light!");
+                Debug.Log("Yellow fluid used: regular!");
                 healthBar.color = Color.yellow;
                 break;
             case LighterFluid.FluidType.Blue:
-                Debug.Log("Blue fluid used: Longer-lasting light!");
+                Debug.Log("Blue fluid used: bright but fast burning!");
                 healthBar.color = Color.blue;
                 break;
             case LighterFluid.FluidType.Green:
-                Debug.Log("Green fluid used: Wider light radius!");
+                Debug.Log("Green fluid used: dim but slow burn!");
                 healthBar.color = Color.green;
                 break;
         }

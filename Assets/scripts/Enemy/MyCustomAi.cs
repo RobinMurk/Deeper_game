@@ -186,7 +186,6 @@ public class MyCustomAi : MonoBehaviour
     private void Update () {
         // Update our tree every frame
         _tree.Tick();
-        spawnCloserToPlayer(10f, 10f);
     }
 
     /// <summary>
@@ -229,7 +228,12 @@ public class MyCustomAi : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "DetectionRadius")
+        if (other.gameObject.CompareTag("Torch"))
+        {
+            Torch torch = other.gameObject.GetComponent<Torch>();
+            torch.Extinguish();
+        }
+        else if (other.gameObject.name == "DetectionRadius")
         {
             EventListener.Instance.HeardNoise();
             lastKnowPositionOfPlayer = Player.Instance.transform.position;

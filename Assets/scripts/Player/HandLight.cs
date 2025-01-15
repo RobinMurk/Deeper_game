@@ -81,6 +81,15 @@ public class HandLight : MonoBehaviour
         return gameObject.GetComponentInChildren<Light>();
     }
 
+    public void enemyApproaching(bool close)
+    {
+        Light lightSource = GetLight();
+        if(close)
+            lightSource.color = new Color(0.6f, 0, 1f, 1);
+        else
+            lightSource.color = new Color(0.95f, 0.67f, 0.33f, 1);
+    }
+
     public void ApplyFluidEffect(LighterFluid fluid)
     {
         Light lightSource = GetLight();

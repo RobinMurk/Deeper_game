@@ -8,6 +8,7 @@ TagManager:
   - Pillar
   - Interactable
   - Fire
+  - Torch
   layers:
   - Default
   - TransparentFX

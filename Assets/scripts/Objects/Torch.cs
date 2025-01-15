@@ -13,6 +13,12 @@ public class Torch : MonoBehaviour
         FireParent.gameObject.SetActive(false);
     }
 
+    public void Extinguish()
+    {
+        isActive = false;
+        FireParent.gameObject.SetActive(false);
+    }
+
     public void TurnOnOff(float fluidCost)
     {
         if (!isActive) // If the torch is being turned on

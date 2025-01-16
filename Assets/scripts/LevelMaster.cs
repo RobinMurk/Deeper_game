@@ -72,7 +72,7 @@ public class levelMaster : MonoBehaviour
         Cursor.visible = true; // Show the cursor
         GameObject.Find("UI").transform.Find("DeathView").gameObject.SetActive(true);
         GameObject.Find("UI").transform.Find("LighterFluidBar ").gameObject.SetActive(false);
-        GameObject.Find("UI").transform.Find("Inventory ").gameObject.SetActive(false);
+        //GameObject.Find("UI").transform.Find("Inventory ").gameObject.SetActive(false);
 
     }
 }

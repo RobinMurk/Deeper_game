@@ -16,7 +16,7 @@ public class MyCustomAi : MonoBehaviour
     [SerializeField]
     private BehaviorTree _tree;
     public static Animator animator;
-    private Vector3 lastKnowPositionOfPlayer;
+    public Vector3 lastKnowPositionOfPlayer;
     private float _wanderRadius = 30f;
 
     

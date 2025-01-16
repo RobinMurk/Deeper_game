@@ -17,8 +17,9 @@ public class HandLight : MonoBehaviour
 
     private void Awake() {
         Instance = this;
-        IntensityDelay = 0.1f;   //0.5 seconds
+        IntensityDelay = 0.1f;
         IntensityAmmountToRemove = 0.001f;
+        SetLightColor(Color.yellow);
     }
     // Start is called before the first frame update
     void Start()
@@ -81,28 +82,151 @@ public class HandLight : MonoBehaviour
         return gameObject.GetComponentInChildren<Light>();
     }
 
+    public void SetLightColor(Color color)
+    {
+        Light lightSource = GetLight();
+        lightSource.color = color;
+    }
+
     public void ApplyFluidEffect(LighterFluid fluid)
     {
         Light lightSource = GetLight();
 
         if (lightSource != null)
         {
-            switch (fluid.fluidType)
+            if (fluid.isTrap)
             {
-                case LighterFluid.FluidType.Yellow:
-                    IntensityAmmountToRemove = 0.001f;
-                    lightSource.intensity = 2f;
-                    break;
+                switch (fluid.fluidType)
+                {
+                    // Trapped Fluids
+                    case LighterFluid.FluidType.TrapCrimsonLeak:
+                        IntensityAmmountToRemove = 0.0032f;
+                        lightSource.intensity = 1.5f;
+                        SetLightColor(new Color(0.86f, 0.08f, 0.24f)); // Crimson Red
+                        break;
 
-                case LighterFluid.FluidType.Blue:
-                    IntensityAmmountToRemove = 0.002f;
-                    lightSource.intensity = 4f;
-                    break;
+                    case LighterFluid.FluidType.TrapDarkMist:
+                        IntensityAmmountToRemove = 0.004f;
+                        lightSource.intensity = 1f;
+                        SetLightColor(new Color(0.18f, 0.31f, 0.31f)); // Dark Gray
+                        break;
 
-                case LighterFluid.FluidType.Green:
-                    IntensityAmmountToRemove = 0.0005f;
-                    lightSource.intensity = 1f;
-                    break;
+                    case LighterFluid.FluidType.TrapShadowSpark:
+                        IntensityAmmountToRemove = 0.0048f;
+                        lightSource.intensity = 0.8f;
+                        SetLightColor(Color.black); // Black
+                        break;
+
+                    case LighterFluid.FluidType.TrapBlackFlame:
+                        IntensityAmmountToRemove = 0.00448f;
+                        lightSource.intensity = 1.2f;
+                        SetLightColor(new Color(0.11f, 0.11f, 0.11f)); // Charcoal
+                        break;
+
+                    case LighterFluid.FluidType.TrapInfernalEmber:
+                        IntensityAmmountToRemove = 0.00352f;
+                        lightSource.intensity = 2.8f;
+                        SetLightColor(new Color(0.55f, 0.0f, 0.0f)); // Deep Red
+                        break;
+
+                    case LighterFluid.FluidType.TrapRottenGlow:
+                        IntensityAmmountToRemove = 0.00432f;
+                        lightSource.intensity = 1.3f;
+                        SetLightColor(new Color(0.33f, 0.42f, 0.18f)); // Muddy Green
+                        break;
+
+                    case LighterFluid.FluidType.TrapVoidEssence:
+                        IntensityAmmountToRemove = 0.0048f;
+                        lightSource.intensity = 0.9f;
+                        SetLightColor(new Color(0.29f, 0.0f, 0.51f)); // Void Purple
+                        break;
+
+                    case LighterFluid.FluidType.TrapCorrosiveLight:
+                        IntensityAmmountToRemove = 0.0056f;
+                        lightSource.intensity = 1.1f;
+                        SetLightColor(new Color(0.6f, 0.8f, 0.2f)); // Acidic Yellow
+                        break;
+
+                    case LighterFluid.FluidType.TrapBurntWisp:
+                        IntensityAmmountToRemove = 0.00448f;
+                        lightSource.intensity = 0.7f;
+                        SetLightColor(new Color(0.41f, 0.41f, 0.41f)); // Smoky Gray
+                        break;
+
+                    case LighterFluid.FluidType.TrapPhantomFlame:
+                        IntensityAmmountToRemove = 0.004f;
+                        lightSource.intensity = 1.8f;
+                        SetLightColor(new Color(0.86f, 0.86f, 0.86f)); // Ghostly Pale
+                        break;
+                    }
+
+                    Debug.Log("Triger enemy here!!!");
+            }
+            else
+            {
+                switch (fluid.fluidType)
+                {
+                    // Regular Fluids
+                    case LighterFluid.FluidType.Regular:
+                        IntensityAmmountToRemove = 0.0016f;
+                        lightSource.intensity = 2f;
+                        SetLightColor(Color.yellow);
+                        break;
+
+                    case LighterFluid.FluidType.BlueSpark:
+                        IntensityAmmountToRemove = 0.0032f;
+                        lightSource.intensity = 4f;
+                        SetLightColor(new Color(0.53f, 0.81f, 0.92f)); // Light Blue
+                        break;
+
+                    case LighterFluid.FluidType.GreenWhisper:
+                        IntensityAmmountToRemove = 0.0024f;
+                        lightSource.intensity = 2f;
+                        SetLightColor(new Color(0.2f, 0.8f, 0.2f)); // Lime Green
+                        break;
+
+                    case LighterFluid.FluidType.SolarFlame:
+                        IntensityAmmountToRemove = 0.0016f;
+                        lightSource.intensity = 3f;
+                        SetLightColor(new Color(1.0f, 0.84f, 0.0f)); // Golden Yellow
+                        break;
+
+                    case LighterFluid.FluidType.CrystalBlaze:
+                        IntensityAmmountToRemove = 0.00128f;
+                        lightSource.intensity = 4.5f;
+                        SetLightColor(Color.cyan); // Cyan
+                        break;
+
+                    case LighterFluid.FluidType.VioletEmber:
+                        IntensityAmmountToRemove = 0.0024f;
+                        lightSource.intensity = 2.5f;
+                        SetLightColor(new Color(0.54f, 0.17f, 0.89f)); // Purple
+                        break;
+
+                    case LighterFluid.FluidType.GoldenFire:
+                        IntensityAmmountToRemove = 0.00192f;
+                        lightSource.intensity = 3.5f;
+                        SetLightColor(new Color(1.0f, 0.84f, 0.0f)); // Bright Gold
+                        break;
+
+                    case LighterFluid.FluidType.LunarGlow:
+                        IntensityAmmountToRemove = 0.0024f;
+                        lightSource.intensity = 2.2f;
+                        SetLightColor(new Color(0.96f, 0.96f, 0.96f)); // Soft White
+                        break;
+
+                    case LighterFluid.FluidType.SilverTorch:
+                        IntensityAmmountToRemove = 0.0016f;
+                        lightSource.intensity = 3f;
+                        SetLightColor(new Color(0.75f, 0.75f, 0.75f)); // Silver
+                        break;
+
+                    case LighterFluid.FluidType.AzureRadiance:
+                        IntensityAmmountToRemove = 0.00144f;
+                        lightSource.intensity = 3.2f;
+                        SetLightColor(new Color(0.27f, 0.51f, 0.71f)); // Deep Blue
+                        break;
+                }
             }
         }
     }

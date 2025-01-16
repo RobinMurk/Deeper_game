@@ -580,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2191893026440102964, guid: bfb6208cb6f049a1b8b6a36b5799cf94, type: 3}
       propertyPath: fluidType
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7178083651865933963, guid: bfb6208cb6f049a1b8b6a36b5799cf94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1103,6 +1103,10 @@ PrefabInstance:
     - target: {fileID: 4042985755133631882, guid: 1a51966519d3bbf478f271d8214a3414, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855644204270368731, guid: 1a51966519d3bbf478f271d8214a3414, type: 3}
+      propertyPath: fluidType
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9158332697950592551, guid: 1a51966519d3bbf478f271d8214a3414, type: 3}
       propertyPath: WinView

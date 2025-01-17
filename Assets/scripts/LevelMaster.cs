@@ -67,6 +67,7 @@ public class levelMaster : MonoBehaviour
 
     public void Lose()
     {
+        Tutorial.Instance.TurnOff();
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         Cursor.visible = true; // Show the cursor

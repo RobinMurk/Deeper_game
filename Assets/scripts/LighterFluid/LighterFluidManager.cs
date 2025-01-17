@@ -30,6 +30,11 @@ public class LighterFluidManager : MonoBehaviour
         healthAmount += fluidAmount;
         healthAmount = Mathf.Clamp(healthAmount, 0, 2f);
         healthBar.fillAmount = healthAmount / 2f;
+
+        if (Player.Instance.isEnemyClose)  
+        {
+            HandLight.Instance.enemyApproaching(true);
+        }
     }
 
     public void UseFluid(LighterFluid fluid)

@@ -279,6 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cf91f2d94473d71a092464906c668a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAgrovated: 0
+  isDocile: 0
 --- !u!4 &57016495
 Transform:
   m_ObjectHideFlags: 0
@@ -5420,6 +5422,14 @@ PrefabInstance:
       propertyPath: StartingWaypoint
       value: 
       objectReference: {fileID: 1795865590}
+    - target: {fileID: 5233857462551252600, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233857462551252600, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8575434722113205503, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.76

@@ -49,6 +49,11 @@ public class AnimationStateController : MonoBehaviour
         bool wasdPressed = Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("a") || Input.GetKey("d");
         bool runPressed = Input.GetKey("left shift");
 
+        if(wasdPressed && Tutorial.Instance.tutorialText.text == "Use WASD or Arrow Keys to move, Shift to run, and Ctrl to crouch. Press F to interact and E to turn lights on and off!")
+        {
+            Tutorial.Instance.FindBook();
+        }
+
         if (Input.GetKeyDown("e"))
         {   
             //HandLight.Instance.TurnOnOff();

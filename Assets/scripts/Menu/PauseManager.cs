@@ -36,6 +36,8 @@ public class PauseManager : MonoBehaviour
         // Return early if no Pause Menu UI is assigned
         if (pauseMenuUI == null) return;
 
+        Tutorial.Instance.TurnOff();
+
         LighterFluidBar.SetActive(false);
         Inventory.SetActive(false);
         Time.timeScale = 0; // Freeze the game
@@ -50,6 +52,8 @@ public class PauseManager : MonoBehaviour
     {
         // Return early if no Pause Menu UI is assigned
         if (pauseMenuUI == null) return;
+
+        Tutorial.Instance.TurnOn();
 
         LighterFluidBar.SetActive(true);
         Inventory.SetActive(true);

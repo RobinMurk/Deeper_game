@@ -30,6 +30,10 @@ public class InventoryManager : MonoBehaviour
 
         Items.Add(item);
 
+        Tutorial.Instance.FindMainRoomPillar();
+       
+        
+
         // Instantiate the item in the UI directly
         GameObject obj = Instantiate(InventoryItem, ItemContent);
         var itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();

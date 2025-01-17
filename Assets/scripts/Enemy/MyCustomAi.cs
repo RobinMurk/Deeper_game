@@ -11,12 +11,15 @@ public class MyCustomAi : MonoBehaviour
     public float range = 10f;
     private bool HasLineOfSight;
     public Waypoint StartingWaypoint;
-    public Waypoint CurrentWaypoint;
+    private Waypoint CurrentWaypoint;
     private Waypoint NextWaypoint;
     [SerializeField]
     private BehaviorTree _tree;
     public static Animator animator;
-    public Vector3 lastKnowPositionOfPlayer;
+    private int isWalkingHash;
+    private int isRunningHash;
+    private int isSearchingHash;
+    private Vector3 lastKnowPositionOfPlayer;
     private float _wanderRadius = 30f;
     private bool isAgrovated = false;
 
@@ -44,58 +47,37 @@ public class MyCustomAi : MonoBehaviour
     }
 
     void MoveToNextWaypoint(){
+        bool isWalking = animator.GetBool(isWalkingHash);
+        if (!isWalking)
+        {
+            animator.SetBool(isWalkingHash, true);
+        }
         CurrentWaypoint = NextWaypoint;
         NextWaypoint = CurrentWaypoint.GetWaypoint();
         agent.SetDestination(NextWaypoint.transform.position);
     }
-
-    private bool PlayerInSight()
-    {
-        Vector3 direction = (Player.Instance.transform.position - transform.position).normalized;
-        Ray ray = new Ray(transform.position, direction);
-        //Debug.DrawLine(ray.origin, ray.origin + ray.direction * range, Color.green);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            if (hit.collider.CompareTag("Player"))
-            {
-                return true;
-            }
-            //Debug.DrawLine(ray.origin, ray.origin + ray.direction * range, Color.red);
-        }
-        return false;
-    }
-    
     private void Awake ()
     {
         animator = GetComponent<Animator>();
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isRunningHash = Animator.StringToHash("isRunning");
+        isSearchingHash = Animator.StringToHash("isSearching");
         CurrentWaypoint = StartingWaypoint;
         NextWaypoint = StartingWaypoint;
         agent = GetComponent<NavMeshAgent>();
         _tree = new BehaviorTreeBuilder(gameObject)
             .Selector()
                 .Sequence()
-                    .Condition("NoLineOfSight", () =>
-                    {
-                        if (!EventListener.Instance.Stalk && !EventListener.Instance.Attack) return false;
-                        if (PlayerInSight())
-                        {
-                            return false;
-                        };
-                        return true;
-                    })
-                    .Do("GetLineOfSight", () =>
-                    {
-                        MoveTowardsPlayer(2f, 1);
-                        return TaskStatus.Success;
-                    })
-                .End()
-                .Sequence()
                     .Condition("CheckNextWaypoint", () =>
                     {
-                        if (EventListener.Instance.Investigate) return false;
-                        if (EventListener.Instance.Stalk) return false;
-                        if (EventListener.Instance.Attack) return false;
-                        if(agent.remainingDistance > 0.1) return false;
+                        if (EventListener.Instance.Stalk ||
+                            EventListener.Instance.Attack ||
+                            EventListener.Instance.Investigate || 
+                            agent.remainingDistance > 0.1)
+                        {
+                            return false;
+                        }
+                        animator.SetBool(isWalkingHash, false);
                         return true;
                     })
                     .WaitTime(5f)

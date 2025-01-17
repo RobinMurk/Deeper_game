@@ -18,6 +18,8 @@ public class MyCustomAi : MonoBehaviour
     public static Animator animator;
     public Vector3 lastKnowPositionOfPlayer;
     private float _wanderRadius = 30f;
+    private bool isAgrovated = false;
+
 
     
     void MoveTowardsPlayer(float distance, float stalkDistance)
@@ -235,6 +237,7 @@ public class MyCustomAi : MonoBehaviour
         }
         else if (other.gameObject.name == "DetectionRadius")
         {
+            AudioManager.Instance.Play("EnemyScreetch");
             EventListener.Instance.HeardNoise();
             lastKnowPositionOfPlayer = Player.Instance.transform.position;
         };

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimationStateController : MonoBehaviour
@@ -31,6 +32,8 @@ public class AnimationStateController : MonoBehaviour
         isRunningHash = Animator.StringToHash("isRunning");
         isCrouchedHash = Animator.StringToHash("isCrouched");
         lanternHash = Animator.StringToHash("lanternOn");
+
+        audioManager.Play("BreathingSlow");
     }
 
     // Update is called once per frame
@@ -80,11 +83,15 @@ public class AnimationStateController : MonoBehaviour
 
         if (!isRunning && wasdPressed && runPressed)
         {
+            audioManager.Stop("BreathingSlow");
+            audioManager.Play("Running");
             animator.SetBool(isRunningHash, true);
         }
 
         if (isRunning && (!wasdPressed || !runPressed))
         {
+            audioManager.Stop("Running");
+            audioManager.Play("BreathingSlow");
             animator.SetBool(isRunningHash, false);
         }
         
@@ -96,11 +103,11 @@ public class AnimationStateController : MonoBehaviour
     // loogika lööb sisse
     private void SetPlayerConfigs(bool isWalking, bool isRunning, bool isCrouched)
     {
-        if (isWalking && !isRunning && !isCrouched)
+        if (isWalking && !isRunning && !isCrouched) //walking
         {
             Player.Instance.playerSpeed = 4f;
             sphereCollider.radius = 20f;
-        } else if (isRunning && !isCrouched)
+        } else if (isRunning && !isCrouched) //running
         {
             Player.Instance.playerSpeed = 8f;
             sphereCollider.radius = 40f;
@@ -108,9 +115,9 @@ public class AnimationStateController : MonoBehaviour
         {
             Player.Instance.playerSpeed = 2f;
             sphereCollider.radius = 3f;
-        } else if (!isWalking && !isRunning)
+        } else if (!isWalking && !isRunning) //idle
         {
-            sphereCollider.radius = 0.5f;
+           sphereCollider.radius = 0.5f;
         } 
     }
 }

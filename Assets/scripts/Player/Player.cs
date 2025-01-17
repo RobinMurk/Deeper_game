@@ -71,10 +71,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)){
-            HandLight.Instance.TurnOnOff();
-        }
-        
         GameObject interactableObject = CheckForInteractable();
         if(holdImage.enabled && Input.GetKeyDown(KeyCode.F))
         {

@@ -9,6 +9,7 @@ public class AnimationStateController : MonoBehaviour
     private int isWalkingHash;
     private int isRunningHash;
     private int isCrouchedHash;
+    private int lanternHash;
     
     AudioManager audioManager;
     private SphereCollider sphereCollider;
@@ -29,6 +30,7 @@ public class AnimationStateController : MonoBehaviour
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         isCrouchedHash = Animator.StringToHash("isCrouched");
+        lanternHash = Animator.StringToHash("lanternOn");
     }
 
     // Update is called once per frame
@@ -36,8 +38,23 @@ public class AnimationStateController : MonoBehaviour
     {
         bool isRunning = animator.GetBool(isRunningHash);
         bool isWalking = animator.GetBool(isWalkingHash);
+        bool lantern = animator.GetBool(lanternHash);
         bool wasdPressed = Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("a") || Input.GetKey("d");
         bool runPressed = Input.GetKey("left shift");
+
+        if (Input.GetKeyDown("e"))
+        {   
+            HandLight.Instance.TurnOnOff();
+            if (!lantern && HandLight.Instance.LightOn)
+            {
+                animator.SetBool(lanternHash, true);
+            }
+            else
+            {
+                animator.SetBool(lanternHash, false);
+            }
+        }
+        
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             crouchToggeled = !crouchToggeled;

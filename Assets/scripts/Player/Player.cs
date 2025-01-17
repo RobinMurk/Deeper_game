@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,8 @@ public class Player : MonoBehaviour
     public GameObject Pop;
     public TMPro.TextMeshProUGUI PopupText;
     public HandLight handLight;
+    public float playerSpeed = 3f;
+    public GameObject Detection;
 
     private GameObject itemInRange;
     private GameObject pillarInRange;
@@ -140,6 +144,10 @@ public class Player : MonoBehaviour
             PopupText.text = "Interact (F)";
             Pop.SetActive(true);
         }
+        
+        if (Input.GetKeyDown(KeyCode.E)){
+            HandLight.Instance.TurnOnOff();
+        }
     }
 
     private void PlaceBookOnPillar(GameObject Pillar)
@@ -157,4 +165,19 @@ public class Player : MonoBehaviour
         levelMaster.Instance.Lose();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "WarnPlayerRadius")
+        {
+            handLight.enemyApproaching(true);
+        };
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "WarnPlayerRadius")
+        {
+            handLight.enemyApproaching(false);
+        };
+    }
 }

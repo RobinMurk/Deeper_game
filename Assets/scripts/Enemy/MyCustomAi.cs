@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using CleverCrow.Fluid.BTs.Tasks;
 using CleverCrow.Fluid.BTs.Trees;
@@ -10,11 +11,13 @@ public class MyCustomAi : MonoBehaviour
     public float range = 10f;
     private bool HasLineOfSight;
     public Waypoint StartingWaypoint;
-    private Waypoint CurrentWaypoint;
+    public Waypoint CurrentWaypoint;
     private Waypoint NextWaypoint;
     [SerializeField]
     private BehaviorTree _tree;
     public static Animator animator;
+    public Vector3 lastKnowPositionOfPlayer;
+    private float _wanderRadius = 30f;
 
     
     void MoveTowardsPlayer(float distance, float stalkDistance)
@@ -85,7 +88,9 @@ public class MyCustomAi : MonoBehaviour
                     })
                 .End()
                 .Sequence()
-                    .Condition("CheckNextWaypoint", () => {
+                    .Condition("CheckNextWaypoint", () =>
+                    {
+                        if (EventListener.Instance.Investigate) return false;
                         if (EventListener.Instance.Stalk) return false;
                         if (EventListener.Instance.Attack) return false;
                         if(agent.remainingDistance > 0.1) return false;
@@ -130,6 +135,50 @@ public class MyCustomAi : MonoBehaviour
                     return TaskStatus.Success;
                 })
                 .End()
+            .Sequence()
+                .Condition("InvestigateMovement", () =>
+                {
+                    if (agent.remainingDistance < 0.1f)
+                    {
+                        EventListener.Instance.CheckArea();
+                    }
+                    return !EventListener.Instance.InvestigateArea &&
+                           EventListener.Instance.Investigate;
+                })
+                .Do("Investigate", () =>
+                {
+                    agent.SetDestination(lastKnowPositionOfPlayer);
+                    return TaskStatus.Success;
+                })
+                .End()
+            .Sequence()
+                .Condition("InvestigateAroundMovementArea", () =>
+                {
+                    return !EventListener.Instance.BackToPatrol(Time.deltaTime) && 
+                           EventListener.Instance.InvestigateArea;
+                })
+                .Do("CheckArea", () =>
+                {
+                    if (agent.remainingDistance <= agent.stoppingDistance) //done with path
+                    {
+                        Vector3 randomDirection = Random.insideUnitSphere * _wanderRadius;
+                        randomDirection += transform.position;
+                        randomDirection.y = transform.position.y;
+                        NavMeshHit hit;
+                        bool navMeshHit = false;
+                        while (!navMeshHit)
+                        {
+                            if (NavMesh.SamplePosition(randomDirection, out hit, _wanderRadius, NavMesh.AllAreas))
+                            {
+                                agent.SetDestination(hit.position);
+                                navMeshHit = true;
+                            }
+                        }
+                    }
+
+                    return TaskStatus.Success;
+                })
+                .End()
             .End()
             .Build();
     }
@@ -137,5 +186,63 @@ public class MyCustomAi : MonoBehaviour
     private void Update () {
         // Update our tree every frame
         _tree.Tick();
-    }   
+    }
+
+    /// <summary>
+    /// Spawns an enemy at the farthest checkpoint within a given radius.
+    /// </summary>
+    /// <param name="outOfBoundsDistance">The distance at which the enemy is considered out of bounds and will be respawned closer.</param>
+    /// <param name="spawnDistance">The radius within which to search for checkpoints to spawn the enemy.</param>
+    public void spawnCloserToPlayer(float outOfBoundsDistance, float spawnDistance)
+    {   
+        if ((Player.Instance.transform.position - transform.position).magnitude < outOfBoundsDistance) return;
+        Collider[] hitColliders = Physics.OverlapSphere(Player.Instance.transform.position, spawnDistance, LayerMask.GetMask("Checkpoint"));
+        if (hitColliders.Length == 0)
+        {
+            Debug.LogWarning("No checkpoints found within the specified radius.");
+            return;
+        }
+
+        Collider farthestCheckpoint = null;
+        float maxDistance = 0f;
+        Debug.Log(hitColliders.Length);
+        foreach (Collider checkpoint in hitColliders)
+        {
+            Debug.Log(checkpoint.name);
+            float distance = Vector3.Distance(Player.Instance.transform.position, checkpoint.transform.position);
+            if (distance > maxDistance)
+            {
+                maxDistance = distance;
+                farthestCheckpoint = checkpoint;
+            }
+        }
+
+        // Spawn the enemy at the farthest checkpoint
+        if (farthestCheckpoint != null)
+        {
+            transform.position = farthestCheckpoint.transform.position;
+            CurrentWaypoint = farthestCheckpoint.gameObject.GetComponent<Waypoint>();
+            Debug.Log($"Enemy spawned at checkpoint: {farthestCheckpoint.name}");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Torch"))
+        {
+            Torch torch = other.gameObject.GetComponent<Torch>();
+            torch.Extinguish();
+        }
+        else if (other.gameObject.name == "DetectionRadius")
+        {
+            EventListener.Instance.HeardNoise();
+            lastKnowPositionOfPlayer = Player.Instance.transform.position;
+        };
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == "DetectionRadius")
+            lastKnowPositionOfPlayer = Player.Instance.transform.position;
+    }
 }

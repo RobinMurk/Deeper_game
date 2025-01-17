@@ -42,7 +42,7 @@ public class HandLight : MonoBehaviour
     }
 
     public void TurnOnOff(){
-
+        
         if(gameObject.activeSelf) // Turn Off
         {
             gameObject.SetActive(!gameObject.activeSelf);
@@ -86,6 +86,15 @@ public class HandLight : MonoBehaviour
     {
         Light lightSource = GetLight();
         lightSource.color = color;
+    }
+
+    public void enemyApproaching(bool close)
+    {
+        Light lightSource = GetLight();
+        if(close)
+            lightSource.color = new Color(0.6f, 0, 1f, 1);
+        else
+            lightSource.color = new Color(0.95f, 0.67f, 0.33f, 1);
     }
 
     public void ApplyFluidEffect(LighterFluid fluid)

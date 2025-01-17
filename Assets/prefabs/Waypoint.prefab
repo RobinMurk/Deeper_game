@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4899402888571549900}
   - component: {fileID: 650650670454695674}
   - component: {fileID: 6339132331249901423}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LightForFindingWaypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7994305185708268764}
   - component: {fileID: 3253723051628840446}
-  m_Layer: 0
+  - component: {fileID: 4773222547624480679}
+  m_Layer: 16
   m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,3 +165,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AdjacentWaypoints: []
+--- !u!65 &4773222547624480679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833289536304776796}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

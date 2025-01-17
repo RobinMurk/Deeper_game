@@ -8,6 +8,7 @@ TagManager:
   - Pillar
   - Interactable
   - Fire
+  - Torch
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - GateWall
   - Player
   - Enemy
-  - 
+  - Checkpoint
   - 
   - 
   - 

@@ -55,6 +55,17 @@ public class HandLight : MonoBehaviour
         
     }
 
+    public void TurnOff()
+    {
+        gameObject.SetActive(!gameObject.activeSelf);
+    }
+
+    public void TurnOn()
+    {
+        gameObject.SetActive(!gameObject.activeSelf);
+        InternalTime = Time.time + IntensityDelay;
+    }
+
     public void DecreaseIntensity(float amount)
     {
         Light lightSource = GetLight();
@@ -64,7 +75,6 @@ public class HandLight : MonoBehaviour
             if (LighterFluidManager.Instance.healthAmount > 0)
             {
                 gameObject.SetActive(true);
-                lightSource.intensity -= amount;
                 LighterFluidManager.Instance.UseLighterFluid(amount);
                 InternalTime += IntensityDelay;
                 currentIntensity = lightSource.intensity;
@@ -74,7 +84,7 @@ public class HandLight : MonoBehaviour
                 // If no fluid is left, turn off the light
                 lightSource.intensity = 0;
                 currentIntensity = 0;
-                gameObject.SetActive(false); // Turn off the light object
+                AnimationStateController.Instance.armDown();
             }
         }
     }

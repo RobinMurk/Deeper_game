@@ -489,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 4992382734612827157, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
       propertyPath: handLight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1637524235}
     - target: {fileID: 5001043198089909377, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4140,6 +4140,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4102093151108132813, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
   m_PrefabInstance: {fileID: 89017280}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1637524235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8299983976709091847, guid: cc0c2e451ade6066baf25750d7137941, type: 3}
+  m_PrefabInstance: {fileID: 1189440191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef44aa89115ffdc47ac13c8655ce2f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1682961975
 GameObject:
   m_ObjectHideFlags: 0

@@ -868,6 +868,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 665203827336634706, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1694911085}
     - target: {fileID: 3874113413131674547, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
       propertyPath: StartingWaypoint
       value: 

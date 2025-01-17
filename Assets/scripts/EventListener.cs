@@ -6,6 +6,9 @@ using UnityEngine;
 public class  EventListener : MonoBehaviour
 {
     public static EventListener Instance;
+    private int isWalkingHash;
+    private int isRunningHash;
+    private int isSearchingHash;
     private bool _stalking = false;
     private bool _attack = false;
     private bool _investigate = false;
@@ -38,12 +41,15 @@ public class  EventListener : MonoBehaviour
 
     public void HeardNoise()
     {
-        MyCustomAi.agent.speed = 2f;
+        MyCustomAi.animator.SetBool(isRunningHash, true);
+        MyCustomAi.agent.speed = 4f;
         Investigate = true;
     }
 
     public void CheckArea()
     {
+        MyCustomAi.animator.SetBool(isRunningHash, false);
+        MyCustomAi.animator.SetBool(isSearchingHash, true);
         InvestigateArea = true;
     }
 
@@ -51,6 +57,8 @@ public class  EventListener : MonoBehaviour
     {
         _investigationTime += deltaTime;
         if (_investigationTime < _timeLimit) return false;
+        MyCustomAi.animator.SetBool(isSearchingHash, false);
+        MyCustomAi.animator.SetBool(isWalkingHash, true);
         MyCustomAi.agent.speed = 1f;
         Investigate = false;
         InvestigateArea = false;
@@ -76,6 +84,9 @@ public class  EventListener : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isRunningHash = Animator.StringToHash("isRunning");
+        isSearchingHash = Animator.StringToHash("isSearching");
     }
 
     // Start is called before the first frame update

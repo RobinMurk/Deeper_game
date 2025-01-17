@@ -15,6 +15,8 @@ public class  EventListener : MonoBehaviour
     private bool _investigateArea = false;
     private float _investigationTime = 0f;
     private float _timeLimit = 5f;
+    public bool isAgrovated;
+    public bool isDocile;
     public bool Stalk
     {
         get { return _stalking; } 
@@ -40,7 +42,8 @@ public class  EventListener : MonoBehaviour
     }
 
     public void HeardNoise()
-    {
+    {   
+        isAgrovated = true;
         MyCustomAi.animator.SetBool(isRunningHash, true);
         MyCustomAi.agent.speed = 4f;
         Investigate = true;

@@ -71,9 +71,15 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 1
   - name: GateOpening
-    clip: {fileID: 8300000, guid: 035bd04ad512abf45bef5ab812fccc73, type: 3}
+    clip: {fileID: 8300000, guid: ca735806c6ea57a41ac9e59531b5290f, type: 3}
     volume: 0.555
     pitch: 0.51
+    source: {fileID: 0}
+    loop: 0
+  - name: GateOpeningLong
+    clip: {fileID: 8300000, guid: 38e30393776257142b504f4a6c4f6246, type: 3}
+    volume: 0.506
+    pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: ButtonHover
@@ -119,17 +125,11 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 1
   - name: EnemyScreetch
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1708418daabf3514697e9ee4eb18b223, type: 3}
     volume: 0.506
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: EnemyBreathing
-    clip: {fileID: 8300000, guid: 15083c4b17c307948870ee0dd72a9b8e, type: 3}
-    volume: 0.506
-    pitch: 1
-    source: {fileID: 0}
-    loop: 1
 --- !u!114 &8405422621660737206
 MonoBehaviour:
   m_ObjectHideFlags: 0

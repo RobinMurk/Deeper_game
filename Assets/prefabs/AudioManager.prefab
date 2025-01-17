@@ -118,6 +118,12 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  - name: EnemyScreetch
+    clip: {fileID: 8300000, guid: 1708418daabf3514697e9ee4eb18b223, type: 3}
+    volume: 0.506
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!114 &8405422621660737206
 MonoBehaviour:
   m_ObjectHideFlags: 0

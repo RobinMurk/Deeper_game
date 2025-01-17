@@ -163,10 +163,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*if (other.gameObject.name == "WarnPlayerRadius")
-        {
-            handLight.enemyApproaching(true);
-        };*/
+        if(other.tag == "End"){
+            Debug.Log("reached the end");
+            //insert End credits here
+        }
     }
 
     private void OnTriggerExit(Collider other)

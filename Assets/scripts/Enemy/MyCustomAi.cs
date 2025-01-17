@@ -167,6 +167,10 @@ public class MyCustomAi : MonoBehaviour
             .Build();
     }
 
+    private void Start() {
+        AudioManager.Instance.Play("EnemyBreathing");
+    }
+
     private void Update () {
         // Update our tree every frame
         _tree.Tick();

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -10,10 +8,11 @@ public class Player : MonoBehaviour
     public static Player Instance;
     public Camera MainCamera;
     private Collider ItemLookingAt;
-    public GameObject End;
     public GameObject Pop;
     public TMPro.TextMeshProUGUI PopupText;
     public HandLight handLight;
+    public float playerSpeed = 3f;
+    public GameObject Detection;
 
     private GameObject itemInRange;
     private GameObject pillarInRange;
@@ -57,7 +56,7 @@ public class Player : MonoBehaviour
         RaycastHit hit;
 
         // Only show the holdImage if the ray hits something within 2 units on the interactable layer
-        if (Physics.Raycast(ray, out hit, 2f))
+        if (Physics.Raycast(ray, out hit, 2f) && !PauseManager.Instance.IsPaused())
         {
             if (hit.collider.CompareTag("Interactable"))
             {
@@ -89,8 +88,8 @@ public class Player : MonoBehaviour
                 Pop.SetActive(false);
             }
             else if(interactableObjectLayerName == "Door" && levelMaster.Instance.IsLevelComplete()){
-                EndGame();
                 Pop.SetActive(false);
+                levelMaster.Instance.LoadNextLevel();
             }
             else if(interactableObjectLayerName == "Torch"){
                 var torch = interactableObject.GetComponent<Torch>();
@@ -115,33 +114,34 @@ public class Player : MonoBehaviour
             return;
         }
         string interactableObjectLayerName2 = LayerMask.LayerToName(interactableObject.layer);
-        if(interactableObjectLayerName2 == "Pillar")
+        if(interactableObjectLayerName2 == "Pillar" && !PauseManager.Instance.IsPaused())
         {
             var pillar = interactableObject.GetComponent<Piller>();
             if (!pillar.bookPlaced) // Ensure the book isn't already placed
             {
-                PopupText.text = "Place book ('F')";
+                PopupText.text = "Place book (F)";
                 Pop.SetActive(true);
             }
             
         }
-        else if (interactableObjectLayerName2 == "Item")
+        else if (interactableObjectLayerName2 == "Item" && !PauseManager.Instance.IsPaused())
         {
-            PopupText.text = "Pick up ('F')";
+            PopupText.text = "Pick up (F)";
             Pop.SetActive(true);
         }
-        else if (interactableObjectLayerName2 == "Door" && levelMaster.Instance.IsLevelComplete())
+        else if (interactableObjectLayerName2 == "Door" && levelMaster.Instance.IsLevelComplete() && !PauseManager.Instance.IsPaused())
         {
-            PopupText.text = "Next level ('F')";
+            PopupText.text = "Next level (F)";
             Pop.SetActive(true);
         }
-        else if(interactableObjectLayerName2 == "Torch"){
-            PopupText.text = "Interact F";
+        else if(interactableObjectLayerName2 == "Torch" && !PauseManager.Instance.IsPaused())
+        {
+            PopupText.text = "Interact (F)";
             Pop.SetActive(true);
         }
-        else if (interactableObjectLayerName2 == "Fluid")
+        else if (interactableObjectLayerName2 == "Fluid" && !PauseManager.Instance.IsPaused())
         {
-            PopupText.text = "Interact F";
+            PopupText.text = "Interact (F)";
             Pop.SetActive(true);
         }
     }
@@ -156,8 +156,24 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void EndGame(){
-        End.SetActive(true);
-        Time.timeScale = 0;
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.layer != 15) return;
+        levelMaster.Instance.Lose();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "End"){
+            Debug.Log("reached the end");
+            //insert End credits here
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        /*if (other.gameObject.name == "WarnPlayerRadius")
+        {
+            handLight.enemyApproaching(false);
+        };*/
     }
 }

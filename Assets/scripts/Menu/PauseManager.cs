@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
+    public static PauseManager Instance;
     public GameObject pauseMenuUI; // Optional reference to the Pause Menu Canvas
     public GameObject LighterFluidBar;
     public GameObject Inventory;
@@ -12,7 +13,7 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         // Toggle pause when the Escape key is pressed
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
             if (isPaused)
             {
@@ -23,6 +24,11 @@ public class PauseManager : MonoBehaviour
                 PauseGame();
             }
         }
+    }
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     public void PauseGame()
@@ -59,5 +65,10 @@ public class PauseManager : MonoBehaviour
     {
         Debug.Log("Quitting Game...");
         Application.Quit(); // Quit the application
+    }
+
+    public bool IsPaused()
+    {
+        return isPaused;
     }
 }

@@ -80,3 +80,11 @@ crashlytics-build.properties
 #UserSettings
 *UserSettings/
 .vsconfig
+
+
+#modular Dungeons import
+*Assets/Simple [Mm]odular [Dd]ungeon/
+*Assets/Simple [Mm]odular [Dd]ungeon.meta
+
+#testworld save from robin
+*Assets/testWorld.*

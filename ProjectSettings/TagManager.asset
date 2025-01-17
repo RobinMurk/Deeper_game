@@ -8,6 +8,8 @@ TagManager:
   - Pillar
   - Interactable
   - Fire
+  - Torch
+  - End
   layers:
   - Default
   - TransparentFX
@@ -21,11 +23,11 @@ TagManager:
   - Pillar
   - Torch
   - Fluid
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Gate
+  - GateWall
+  - Player
+  - Enemy
+  - Checkpoint
   - 
   - 
   - 

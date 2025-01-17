@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class cPlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 3f;
     private CharacterController myCC;
 
     private Vector3 inputVector;
@@ -28,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         inputVector.Normalize();
         inputVector = transform.TransformDirection(inputVector);
 
-        movementVector = (inputVector * playerSpeed) + (Vector3.up * myGravity);
+        movementVector = (inputVector * Player.Instance.playerSpeed) + (Vector3.up * myGravity);
     }
 
     void MovePlayer()

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using CleverCrow.Fluid.BTs.Tasks;
 using CleverCrow.Fluid.BTs.Trees;
@@ -6,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class MyCustomAi : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    public static NavMeshAgent agent;
     public float range = 10f;
     private bool HasLineOfSight;
     public Waypoint StartingWaypoint;
@@ -14,6 +15,14 @@ public class MyCustomAi : MonoBehaviour
     private Waypoint NextWaypoint;
     [SerializeField]
     private BehaviorTree _tree;
+    public static Animator animator;
+    private int isWalkingHash;
+    private int isRunningHash;
+    private int isSearchingHash;
+    private Vector3 lastKnowPositionOfPlayer;
+    private float _wanderRadius = 30f;
+    private bool isAgrovated = false;
+
 
     
     void MoveTowardsPlayer(float distance, float stalkDistance)
@@ -31,65 +40,48 @@ public class MyCustomAi : MonoBehaviour
 
         // Set the destination for the NavMeshAgent
         agent.SetDestination(destination);*/
+        if(agent.remainingDistance <= 3){
+            
+        }
         agent.SetDestination(Player.Instance.transform.position);
     }
 
     void MoveToNextWaypoint(){
+        bool isWalking = animator.GetBool(isWalkingHash);
+        if (!isWalking)
+        {
+            animator.SetBool(isWalkingHash, true);
+        }
         CurrentWaypoint = NextWaypoint;
-        Debug.Log(CurrentWaypoint);
         NextWaypoint = CurrentWaypoint.GetWaypoint();
         agent.SetDestination(NextWaypoint.transform.position);
     }
-
-    private bool PlayerInSight()
-    {
-        Vector3 direction = (Player.Instance.transform.position - transform.position).normalized;
-        Ray ray = new Ray(transform.position, direction);
-        //Debug.DrawLine(ray.origin, ray.origin + ray.direction * range, Color.green);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            if (hit.collider.CompareTag("Player"))
-            {
-                return true;
-            }
-            //Debug.DrawLine(ray.origin, ray.origin + ray.direction * range, Color.red);
-        }
-        return false;
-    }
-    
     private void Awake ()
     {
+        animator = GetComponent<Animator>();
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isRunningHash = Animator.StringToHash("isRunning");
+        isSearchingHash = Animator.StringToHash("isSearching");
         CurrentWaypoint = StartingWaypoint;
         NextWaypoint = StartingWaypoint;
         agent = GetComponent<NavMeshAgent>();
         _tree = new BehaviorTreeBuilder(gameObject)
             .Selector()
                 .Sequence()
-                    .Condition("NoLineOfSight", () =>
+                    .Condition("CheckNextWaypoint", () =>
                     {
-                        if (!EventListener.Instance.Stalk && !EventListener.Instance.Attack) return false;
-                        if (PlayerInSight())
+                        if (EventListener.Instance.Stalk ||
+                            EventListener.Instance.Attack ||
+                            EventListener.Instance.Investigate || 
+                            agent.remainingDistance > 0.1)
                         {
                             return false;
-                        };
-                        return true;
-                    })
-                    .Do("GetLineOfSight", () =>
-                    {
-                        MoveTowardsPlayer(2f, 1);
-                        return TaskStatus.Success;
-                    })
-                .End()
-                .Sequence()
-                    .Condition("IsRoaming", () => {
-                        //Debug.Log("condition lol");
-                        if (EventListener.Instance.Stalk) return false;
-                        if (EventListener.Instance.Attack) return false;
-                        if(agent.remainingDistance > agent.stoppingDistance) return false;
+                        }
+                        animator.SetBool(isWalkingHash, false);
                         return true;
                     })
                     .WaitTime(5f)
-                    .Do("Roam", () => {
+                    .Do("GoToNextWaypoint", () => {
                         MoveToNextWaypoint();
                         return TaskStatus.Success;
                     })
@@ -127,6 +119,50 @@ public class MyCustomAi : MonoBehaviour
                     return TaskStatus.Success;
                 })
                 .End()
+            .Sequence()
+                .Condition("InvestigateMovement", () =>
+                {
+                    if (agent.remainingDistance < 0.1f)
+                    {
+                        EventListener.Instance.CheckArea();
+                    }
+                    return !EventListener.Instance.InvestigateArea &&
+                           EventListener.Instance.Investigate;
+                })
+                .Do("Investigate", () =>
+                {
+                    agent.SetDestination(lastKnowPositionOfPlayer);
+                    return TaskStatus.Success;
+                })
+                .End()
+            .Sequence()
+                .Condition("InvestigateAroundMovementArea", () =>
+                {
+                    return !EventListener.Instance.BackToPatrol(Time.deltaTime) && 
+                           EventListener.Instance.InvestigateArea;
+                })
+                .Do("CheckArea", () =>
+                {
+                    if (agent.remainingDistance <= agent.stoppingDistance) //done with path
+                    {
+                        Vector3 randomDirection = Random.insideUnitSphere * _wanderRadius;
+                        randomDirection += transform.position;
+                        randomDirection.y = transform.position.y;
+                        NavMeshHit hit;
+                        bool navMeshHit = false;
+                        while (!navMeshHit)
+                        {
+                            if (NavMesh.SamplePosition(randomDirection, out hit, _wanderRadius, NavMesh.AllAreas))
+                            {
+                                agent.SetDestination(hit.position);
+                                navMeshHit = true;
+                            }
+                        }
+                    }
+
+                    return TaskStatus.Success;
+                })
+                .End()
             .End()
             .Build();
     }
@@ -134,5 +170,64 @@ public class MyCustomAi : MonoBehaviour
     private void Update () {
         // Update our tree every frame
         _tree.Tick();
+    }
+
+    /// <summary>
+    /// Spawns an enemy at the farthest checkpoint within a given radius.
+    /// </summary>
+    /// <param name="outOfBoundsDistance">The distance at which the enemy is considered out of bounds and will be respawned closer.</param>
+    /// <param name="spawnDistance">The radius within which to search for checkpoints to spawn the enemy.</param>
+    public void spawnCloserToPlayer(float outOfBoundsDistance, float spawnDistance)
+    {   
+        if ((Player.Instance.transform.position - transform.position).magnitude < outOfBoundsDistance) return;
+        Collider[] hitColliders = Physics.OverlapSphere(Player.Instance.transform.position, spawnDistance, LayerMask.GetMask("Checkpoint"));
+        if (hitColliders.Length == 0)
+        {
+            Debug.LogWarning("No checkpoints found within the specified radius.");
+            return;
+        }
+
+        Collider farthestCheckpoint = null;
+        float maxDistance = 0f;
+        Debug.Log(hitColliders.Length);
+        foreach (Collider checkpoint in hitColliders)
+        {
+            Debug.Log(checkpoint.name);
+            float distance = Vector3.Distance(Player.Instance.transform.position, checkpoint.transform.position);
+            if (distance > maxDistance)
+            {
+                maxDistance = distance;
+                farthestCheckpoint = checkpoint;
+            }
+        }
+
+        // Spawn the enemy at the farthest checkpoint
+        if (farthestCheckpoint != null)
+        {
+            transform.position = farthestCheckpoint.transform.position;
+            CurrentWaypoint = farthestCheckpoint.gameObject.GetComponent<Waypoint>();
+            Debug.Log($"Enemy spawned at checkpoint: {farthestCheckpoint.name}");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Torch"))
+        {
+            Torch torch = other.gameObject.GetComponent<Torch>();
+            torch.Extinguish();
+        }
+        else if (other.gameObject.name == "DetectionRadius")
+        {
+            AudioManager.Instance.Play("EnemyScreetch");
+            EventListener.Instance.HeardNoise();
+            lastKnowPositionOfPlayer = Player.Instance.transform.position;
+        };
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == "DetectionRadius")
+            lastKnowPositionOfPlayer = Player.Instance.transform.position;
     }
 }

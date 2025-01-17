@@ -81,13 +81,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6575552504269999890}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.06026461, y: 0, z: 0, w: 0.9981825}
+  m_LocalPosition: {x: -0, y: 0.004, z: -0.236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3956622935503827174}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 6.91, y: 0, z: 0}
 --- !u!20 &2964478530451432109
 Camera:
   m_ObjectHideFlags: 0
@@ -268,43 +268,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.187
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.013
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.029045021
+      value: 0.02246452
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7563628
+      value: -0.7201904
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.019870484
+      value: 0.02708837
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.65320516
+      value: 0.69288343
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -175.992
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 87.77
       objectReference: {fileID: 0}
     - target: {fileID: 4533944226828724, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 0.45300293
       objectReference: {fileID: 0}
     - target: {fileID: 114505329217091988, guid: 68f8cf3372c588f4a94bf2c9bd255d3b, type: 3}
       propertyPath: cameraToLookAt
@@ -373,15 +373,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.816517
+      value: -18.860546
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.019998312
+      value: 0.02000022
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.157919
+      value: -21.536987
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       propertyPath: m_LocalRotation.w
@@ -514,7 +514,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4798219153849728049}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
   m_Controller: {fileID: 9100000, guid: c3ccdcff6a15d06508a96412e4091825, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

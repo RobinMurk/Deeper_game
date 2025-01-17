@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
+  m_AmbientSkyColor: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -1214,6 +1214,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6753375081854022710, guid: a655c9c54d3ec864eb3b20e9031ac791, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.115
+      objectReference: {fileID: 0}
     - target: {fileID: 7238007734032727579, guid: a655c9c54d3ec864eb3b20e9031ac791, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -2344,6 +2348,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 336162413012652169, guid: 5f1cf3fcc1acb1b4eb479d3826dfde11, type: 3}
   m_PrefabInstance: {fileID: 843373105}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &863166711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1545425185952951622, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
+  m_PrefabInstance: {fileID: 89017280}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &898784785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3236,6 +3245,14 @@ PrefabInstance:
       propertyPath: PopupText
       value: 
       objectReference: {fileID: 89017281}
+    - target: {fileID: 3738660925083093455, guid: cc0c2e451ade6066baf25750d7137941, type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 863166711}
+    - target: {fileID: 3738660925083093455, guid: cc0c2e451ade6066baf25750d7137941, type: 3}
+      propertyPath: ItemContent
+      value: 
+      objectReference: {fileID: 1460746962}
     - target: {fileID: 4798219153849728049, guid: cc0c2e451ade6066baf25750d7137941, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3761,6 +3778,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8501523758399464494, guid: 1790f2f3c6fdb3c4286a5c5f5cef70f9, type: 3}
   m_PrefabInstance: {fileID: 1394469164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1460746962 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3457630873914349491, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
+  m_PrefabInstance: {fileID: 89017280}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1470477764
 PrefabInstance:

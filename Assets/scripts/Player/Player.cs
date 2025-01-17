@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public HandLight handLight;
     public float playerSpeed = 3f;
     public GameObject Detection;
+    public bool isEnemyClose;
 
     private GameObject itemInRange;
     private GameObject pillarInRange;
@@ -181,6 +182,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.name == "WarnPlayerRadius")
         {
             handLight.enemyApproaching(true);
+            isEnemyClose = true;
         };
     }
 
@@ -189,6 +191,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.name == "WarnPlayerRadius")
         {
             handLight.enemyApproaching(false);
+            isEnemyClose = false;
         };
     }
 }

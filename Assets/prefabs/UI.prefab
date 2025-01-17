@@ -5324,6 +5324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LighterFluidBar: {fileID: 5651546388694275658}
   Inventory: {fileID: 1545425185952951622}
+  PopUp: {fileID: 4102093151108132813}
 --- !u!1 &7842026526916946348
 GameObject:
   m_ObjectHideFlags: 0

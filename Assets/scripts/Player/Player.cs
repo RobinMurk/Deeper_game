@@ -144,10 +144,6 @@ public class Player : MonoBehaviour
             PopupText.text = "Interact (F)";
             Pop.SetActive(true);
         }
-        
-        if (Input.GetKeyDown(KeyCode.E)){
-            HandLight.Instance.TurnOnOff();
-        }
     }
 
     private void PlaceBookOnPillar(GameObject Pillar)
@@ -167,17 +163,17 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "WarnPlayerRadius")
+        /*if (other.gameObject.name == "WarnPlayerRadius")
         {
             handLight.enemyApproaching(true);
-        };
+        };*/
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "WarnPlayerRadius")
+        /*if (other.gameObject.name == "WarnPlayerRadius")
         {
             handLight.enemyApproaching(false);
-        };
+        };*/
     }
 }

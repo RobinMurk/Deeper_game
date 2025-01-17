@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - Fire
   - Torch
+  - End
   layers:
   - Default
   - TransparentFX

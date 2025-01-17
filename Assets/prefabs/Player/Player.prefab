@@ -373,15 +373,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.860546
+      value: -17.866007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02000022
+      value: -0.30308437
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.536987
+      value: -22.53655
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       propertyPath: m_LocalRotation.w
@@ -476,6 +476,9 @@ PrefabInstance:
       addedObject: {fileID: 6295638657147163414}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 4952497298742304667}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 7638302093942931898}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: adfd7a4c7a075b746b4cc6c68a514883, type: 3}
       insertIndex: -1
@@ -526,6 +529,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4952497298742304667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798219153849728049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f559e5b936254c44854439c9ede1fda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &7638302093942931898
 MonoBehaviour:
   m_ObjectHideFlags: 0

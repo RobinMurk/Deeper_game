@@ -46,12 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: WalkingStone
-    clip: {fileID: 8300000, guid: 790bba3d341f9f84d86097d8fe59e116, type: 3}
-    volume: 0.167
-    pitch: 0.84
-    source: {fileID: 0}
-    loop: 0
   - name: PickupSound
     clip: {fileID: 8300000, guid: bbde007a9cb4fb64288d610fb16b6887, type: 3}
     volume: 0.795
@@ -84,16 +78,58 @@ MonoBehaviour:
     loop: 0
   - name: ButtonHover
     clip: {fileID: 8300000, guid: a58331284a540f2469f24c258eb486b7, type: 3}
-    volume: 0.555
+    volume: 0.045
     pitch: 0.51
     source: {fileID: 0}
     loop: 0
   - name: ButtonClick
     clip: {fileID: 8300000, guid: b1a18d8af1315954c9c7882d042463bc, type: 3}
-    volume: 0.555
+    volume: 0.085
     pitch: 0.51
     source: {fileID: 0}
     loop: 0
+  - name: Footstep1
+    clip: {fileID: 8300000, guid: 6688da906e639554e9aeacbffb10804f, type: 3}
+    volume: 0.089
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Footstep2
+    clip: {fileID: 8300000, guid: 1728a4bcf19e9e040b16d05f2cbf2088, type: 3}
+    volume: 0.114
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Footstep3
+    clip: {fileID: 8300000, guid: 4b205d89dacf18b48995ae294a9e3d7b, type: 3}
+    volume: 0.11
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BreathingSlow
+    clip: {fileID: 8300000, guid: fb6890fc2f9bf6044841d41138b0f466, type: 3}
+    volume: 0.278
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Running
+    clip: {fileID: 8300000, guid: fbb4a7983a81eb842b7aa40c87396c89, type: 3}
+    volume: 0.131
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: EnemyScreetch
+    clip: {fileID: 0}
+    volume: 0.506
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: EnemyBreathing
+    clip: {fileID: 8300000, guid: 15083c4b17c307948870ee0dd72a9b8e, type: 3}
+    volume: 0.506
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
 --- !u!114 &8405422621660737206
 MonoBehaviour:
   m_ObjectHideFlags: 0

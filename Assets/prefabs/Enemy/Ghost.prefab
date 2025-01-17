@@ -326,31 +326,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.366
+      value: -8.243
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01999855
+      value: -0.034
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.754
+      value: -21.617
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.66539943
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7464875
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -358,7 +358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -96.574
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b043f82e9babfadcb103f078d5106bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -455,6 +455,7 @@ MonoBehaviour:
   range: 10
   StartingWaypoint: {fileID: 0}
   CurrentWaypoint: {fileID: 0}
+  lastKnowPositionOfPlayer: {x: 0, y: 0, z: 0}
 --- !u!95 &1707443870082302354
 Animator:
   serializedVersion: 5

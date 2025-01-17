@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AnimationStateController : MonoBehaviour
 {
+    public static AnimationStateController Instance;
     private Animator animator;
 
     private int isWalkingHash;
@@ -14,7 +15,13 @@ public class AnimationStateController : MonoBehaviour
     
     AudioManager audioManager;
     private SphereCollider sphereCollider;
-    
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
     void Footstep(int whichFoot)
     {
         audioManager.Play("WalkingStone");
@@ -47,13 +54,15 @@ public class AnimationStateController : MonoBehaviour
 
         if (Input.GetKeyDown("e"))
         {   
-            HandLight.Instance.TurnOnOff();
+            //HandLight.Instance.TurnOnOff();
             if (!lantern && HandLight.Instance.LightOn)
             {
+                HandLight.Instance.TurnOff();
                 animator.SetBool(lanternHash, true);
             }
             else
             {
+                HandLight.Instance.TurnOn();
                 animator.SetBool(lanternHash, false);
             }
         }
@@ -119,5 +128,10 @@ public class AnimationStateController : MonoBehaviour
         {
            sphereCollider.radius = 0.5f;
         } 
+    }
+
+    public void armDown()
+    {
+        animator.SetBool(lanternHash, true);
     }
 }

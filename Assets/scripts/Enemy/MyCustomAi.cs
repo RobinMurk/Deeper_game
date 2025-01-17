@@ -22,6 +22,7 @@ public class MyCustomAi : MonoBehaviour
     private Vector3 lastKnowPositionOfPlayer;
     private float _wanderRadius = 30f;
     private bool isAgrovated = false;
+    private bool isDocile = true;
 
 
     
@@ -58,6 +59,8 @@ public class MyCustomAi : MonoBehaviour
     }
     private void Awake ()
     {
+        isAgrovated = false;
+        isDocile = true;
         animator = GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
@@ -125,6 +128,8 @@ public class MyCustomAi : MonoBehaviour
                     if (agent.remainingDistance < 0.1f)
                     {
                         EventListener.Instance.CheckArea();
+                        EventListener.Instance.isDocile = true;
+                        EventListener.Instance.isAgrovated = false;
                     }
                     return !EventListener.Instance.InvestigateArea &&
                            EventListener.Instance.Investigate;
@@ -174,6 +179,10 @@ public class MyCustomAi : MonoBehaviour
     private void Update () {
         // Update our tree every frame
         _tree.Tick();
+        if(EventListener.Instance.isAgrovated && EventListener.Instance.isDocile){
+            AudioManager.Instance.Play("EnemyScreetch");
+            EventListener.Instance.isDocile = false;
+        }
     }
 
     /// <summary>
@@ -223,7 +232,6 @@ public class MyCustomAi : MonoBehaviour
         }
         else if (other.gameObject.name == "DetectionRadius")
         {
-            AudioManager.Instance.Play("EnemyScreetch");
             EventListener.Instance.HeardNoise();
             lastKnowPositionOfPlayer = Player.Instance.transform.position;
         };

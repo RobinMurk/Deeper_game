@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.6226415, g: 0.59033465, b: 0.59033465, a: 1}
+  m_AmbientSkyColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cf91f2d94473d71a092464906c668a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAgrovated: 0
+  isDocile: 0
 --- !u!4 &57016495
 Transform:
   m_ObjectHideFlags: 0
@@ -450,9 +452,9 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 5412677051692074930, guid: f9a9fdf49b0e06248aac140eaa58d60a, type: 3}
-      propertyPath: sounds.Array.size
-      value: 13
-      objectReference: {fileID: 0}
+      propertyPath: sounds.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1708418daabf3514697e9ee4eb18b223, type: 3}
     - target: {fileID: 8012878603151831745, guid: f9a9fdf49b0e06248aac140eaa58d60a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

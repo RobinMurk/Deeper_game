@@ -119,17 +119,11 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 1
   - name: EnemyScreetch
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1708418daabf3514697e9ee4eb18b223, type: 3}
     volume: 0.506
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: EnemyBreathing
-    clip: {fileID: 8300000, guid: 15083c4b17c307948870ee0dd72a9b8e, type: 3}
-    volume: 0.506
-    pitch: 1
-    source: {fileID: 0}
-    loop: 1
 --- !u!114 &8405422621660737206
 MonoBehaviour:
   m_ObjectHideFlags: 0

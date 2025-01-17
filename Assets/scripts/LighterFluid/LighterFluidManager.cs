@@ -9,11 +9,14 @@ public class LighterFluidManager : MonoBehaviour
     public Image healthBar;
     public float healthAmount = 2f;
     public HandLight handLight;
+    public Color lastLighterFluidColor;
 
      private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        lastLighterFluidColor = Color.yellow;
     }
 
     public void UseLighterFluid(float damage)
@@ -117,6 +120,7 @@ public class LighterFluidManager : MonoBehaviour
                 healthBar.color = new Color(0.86f, 0.86f, 0.86f); // Ghostly Pale
                 break;
         }
+        lastLighterFluidColor = healthBar.color;
         handLight.ApplyFluidEffect(fluid);  
         AddLighterFluid(fluid.fluidAmount);
     }

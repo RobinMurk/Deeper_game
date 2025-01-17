@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
             }
             else if(interactableObjectLayerName == "Door" && levelMaster.Instance.IsLevelComplete()){
                 Pop.SetActive(false);
+                Tutorial.Instance.TurnOff();
                 levelMaster.Instance.LoadNextLevel();
             }
             else if(interactableObjectLayerName == "Torch"){
@@ -153,6 +154,15 @@ public class Player : MonoBehaviour
         {
             InventoryManager.Instance.Remove();
             pillar.PlaceBook();
+            if (!levelMaster.Instance.IsLevelComplete())
+            {
+                Tutorial.Instance.FindBook();
+            }
+            else
+            {
+                Tutorial.Instance.FindExit();
+            }
+            
         }
     }
 
@@ -167,13 +177,18 @@ public class Player : MonoBehaviour
             Debug.Log("reached the end");
             //insert End credits here
         }
+
+        if (other.gameObject.name == "WarnPlayerRadius")
+        {
+            handLight.enemyApproaching(true);
+        };
     }
 
     private void OnTriggerExit(Collider other)
     {
-        /*if (other.gameObject.name == "WarnPlayerRadius")
+        if (other.gameObject.name == "WarnPlayerRadius")
         {
             handLight.enemyApproaching(false);
-        };*/
+        };
     }
 }

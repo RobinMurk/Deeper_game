@@ -14,6 +14,7 @@ public class HandLight : MonoBehaviour
     private float InternalTime;
     public float currentIntensity;
     public bool LightOn;
+    private Color LastColor;
 
     private void Awake() {
         Instance = this;
@@ -104,7 +105,13 @@ public class HandLight : MonoBehaviour
         if(close)
             lightSource.color = new Color(0.6f, 0, 1f, 1);
         else
-            lightSource.color = new Color(0.95f, 0.67f, 0.33f, 1);
+        {
+        if (LighterFluidManager.Instance.lastLighterFluidColor != null)
+            {
+                lightSource.color = LighterFluidManager.Instance.lastLighterFluidColor;
+            }
+        }
+            
     }
 
     public void ApplyFluidEffect(LighterFluid fluid)

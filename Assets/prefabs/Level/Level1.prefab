@@ -13676,7 +13676,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3831335447025315118, guid: c9c686f94cce04f4b9f376baf609cf93, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

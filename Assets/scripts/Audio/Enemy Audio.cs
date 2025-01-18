@@ -5,7 +5,7 @@ using System;
 
 public class EnemyAudio : MonoBehaviour
 {
-    AudioSource[] sources;
+    public AudioSource[] sources;
 
 
     public void StepSound(int whatFoot){

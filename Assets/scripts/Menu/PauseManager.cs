@@ -43,10 +43,10 @@ public class PauseManager : MonoBehaviour
         Inventory.SetActive(false);
         Time.timeScale = 0; // Freeze the game
         isPaused = true;
-
         pauseMenuUI.SetActive(true); // Show the Pause Menu
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         Cursor.visible = true; // Show the cursor
+
     }
 
     public void ResumeGame()

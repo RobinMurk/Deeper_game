@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
+  m_AmbientSkyColor: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &17883874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4717278888966555338, guid: 1a51966519d3bbf478f271d8214a3414, type: 3}
+  m_PrefabInstance: {fileID: 3490808626111218031}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4827a5706fe8a2458e993c88e4def01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &57016493
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +187,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3457630873914349491, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4992382734612827157, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
       propertyPath: handLight
       value: 
@@ -818,10 +833,10 @@ PrefabInstance:
     - target: {fileID: 3874113413131674547, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
       propertyPath: StartingWaypoint
       value: 
-      objectReference: {fileID: 1795865590}
+      objectReference: {fileID: 17883874}
     - target: {fileID: 8575434722113205503, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.76
+      value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 8575434722113205503, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -829,7 +844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8575434722113205503, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.76
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 8575434722113205503, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
       propertyPath: m_LocalRotation.w

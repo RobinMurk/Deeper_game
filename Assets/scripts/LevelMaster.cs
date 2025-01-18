@@ -53,9 +53,11 @@ public class levelMaster : MonoBehaviour
             isLevelComplete = true;
             Debug.Log("Level Complete! All books have been placed.");
             GateDoor.Instance.OpenGate();
-            GateDoorMute.Instance.OpenGateMute();
-            GateDoorMute1.Instance.OpenGateMute();
-            GateDoorMute2.Instance.OpenGateMute();
+            if(SceneManager.GetActiveScene().name == "level2"){
+                GateDoorMute.Instance.OpenGateMute();
+                GateDoorMute2.Instance.OpenGateMute();
+                GateDoorMute1.Instance.OpenGateMute();
+            }
         }
     }
 

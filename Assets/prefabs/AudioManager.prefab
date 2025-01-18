@@ -72,13 +72,13 @@ MonoBehaviour:
     loop: 1
   - name: GateOpening
     clip: {fileID: 8300000, guid: ca735806c6ea57a41ac9e59531b5290f, type: 3}
-    volume: 0.555
+    volume: 0.302
     pitch: 0.51
     source: {fileID: 0}
     loop: 0
   - name: GateOpeningLong
     clip: {fileID: 8300000, guid: 38e30393776257142b504f4a6c4f6246, type: 3}
-    volume: 0.506
+    volume: 0.329
     pitch: 1
     source: {fileID: 0}
     loop: 0

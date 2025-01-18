@@ -10,7 +10,7 @@ public class EnemyAudio : MonoBehaviour
 
     public void StepSound(int whatFoot){
         int numbr = UnityEngine.Random.Range(1,4);
-        sources[numbr].Play();
+        sources[numbr-1].Play();
         
     }
 }

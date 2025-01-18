@@ -176,14 +176,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3457630873914349491, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3643904115712268118, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4992382734612827157, guid: c00ecb7d4bfb05c33a1623a1d2476dfa, type: 3}
       propertyPath: handLight
       value: 
@@ -870,10 +862,6 @@ PrefabInstance:
     - target: {fileID: 8955901391246454341, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
       propertyPath: m_Name
       value: Ch30_nonPBR@Idle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8955901391246454341, guid: 2528a923292066dfea571aee1f2497cc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -104,7 +104,7 @@ public class HandLight : MonoBehaviour
     {
         Light lightSource = GetLight();
         if(close)
-            lightSource.color = new Color(0.6f, 0, 1f, 1);
+            lightSource.color = new Color(0.9339623f, 0.4361427f, 0.450765f, 1);
         else
         {
         if (LighterFluidManager.Instance.lastLighterFluidColor != null)

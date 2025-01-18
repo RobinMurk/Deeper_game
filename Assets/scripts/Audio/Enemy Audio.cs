@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+public class EnemyAudio : MonoBehaviour
+{
+    AudioSource[] sources;
+
+
+    public void StepSound(int whatFoot){
+        int numbr = UnityEngine.Random.Range(1,4);
+        sources[numbr].Play();
+        
+    }
+}

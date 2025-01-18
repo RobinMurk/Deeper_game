@@ -116,15 +116,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f1b7b89c2ea6a13bda384d18175628d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.357891
+      value: -12.76
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f1b7b89c2ea6a13bda384d18175628d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: 0.02000022
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f1b7b89c2ea6a13bda384d18175628d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.951435
+      value: -20.76
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f1b7b89c2ea6a13bda384d18175628d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -308,7 +308,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.75, y: 2, z: 0.75}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!82 &6311253116033824168
 AudioSource:

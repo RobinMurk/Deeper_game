@@ -86,20 +86,12 @@ public class  EventListener : MonoBehaviour
 
     private void Awake()
     {
+        isDocile = true;
+        isDocile = false;
         Instance = this;
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         isSearchingHash = Animator.StringToHash("isSearching");
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

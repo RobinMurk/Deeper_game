@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class levelMaster : MonoBehaviour
 {
@@ -39,7 +41,7 @@ public class levelMaster : MonoBehaviour
         if (isLevelComplete) return;
 
         booksPlacedCount++;
-        EventListener.Instance.Interact();
+        //EventListener.Instance.Interact();
         CheckLevelCompletion();
     }
 
@@ -61,8 +63,17 @@ public class levelMaster : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        WinView.SetActive(true);
-        WinManager.Instance.WinLevel();
+        String levelName = SceneManager.GetActiveScene().name;
+        SceneManager.UnloadSceneAsync(levelName);
+        Time.timeScale = 1;
+        if (levelName == "level1")
+        {
+            SceneManager.LoadScene("level2");
+        } else if (levelName == "level2")
+        {
+            WinView.SetActive(true);
+            WinManager.Instance.WinLevel();
+        }
     }
 
     public void Lose()

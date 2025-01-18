@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
                 {
                     InventoryManager.Instance.Add(interactableObject.GetComponent<ItemController>().Item);
                     Destroy(interactableObject);
-                    FindObjectOfType<AudioManager>().Play("PickupSound");
+                    AudioManager.Instance.Play("PickupSound");
                 }
             }
             else if (interactableObjectLayerName == "Pillar" ){
@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
                 LighterFluid lighterFluid = interactableObject.GetComponent<LighterFluid>();
                 LighterFluidManager.Instance.UseFluid(lighterFluid);
                 Destroy(interactableObject);
+                AudioManager.Instance.Play("PickupSound");
             }
         }
 

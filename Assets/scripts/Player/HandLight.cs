@@ -14,6 +14,7 @@ public class HandLight : MonoBehaviour
     private float InternalTime;
     public float currentIntensity;
     public bool LightOn;
+    public MyCustomAi Ai;
     private Color LastColor;
 
     private void Awake() {
@@ -187,6 +188,7 @@ public class HandLight : MonoBehaviour
                     }
 
                     Debug.Log("Triger enemy here!!!");
+                Ai.spawnCloserToPlayer(100, 20);
             }
             else
             {

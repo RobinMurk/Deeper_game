@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class MyCustomAi : MonoBehaviour
 {
+    public static MyCustomAi Instance;
     public static NavMeshAgent agent;
     public float range = 10f;
     private bool HasLineOfSight;
@@ -21,8 +22,8 @@ public class MyCustomAi : MonoBehaviour
     private int isSearchingHash;
     private Vector3 lastKnowPositionOfPlayer;
     private float _wanderRadius = 30f;
-    private bool isAgrovated = false;
-    private bool isDocile = true;
+    
+
 
 
     
@@ -59,8 +60,7 @@ public class MyCustomAi : MonoBehaviour
     }
     private void Awake ()
     {
-        isAgrovated = false;
-        isDocile = true;
+        Instance = this;
         animator = GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
@@ -237,5 +237,12 @@ public class MyCustomAi : MonoBehaviour
     {
         if (other.gameObject.name == "DetectionRadius")
             lastKnowPositionOfPlayer = Player.Instance.transform.position;
+    }
+
+    public void StopBreathing(){
+        gameObject.GetComponent<AudioSource>().Stop();
+    }
+    public void StartBreathing(){
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }

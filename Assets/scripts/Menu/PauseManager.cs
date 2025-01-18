@@ -35,7 +35,7 @@ public class PauseManager : MonoBehaviour
     {
         // Return early if no Pause Menu UI is assigned
         if (pauseMenuUI == null) return;
-
+        AudioManager.Instance.StopBreathing();
         Tutorial.Instance.TurnOff();
 
         LighterFluidBar.SetActive(false);
@@ -50,6 +50,7 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        AudioManager.Instance.ResumeBreathing();
         // Return early if no Pause Menu UI is assigned
         if (pauseMenuUI == null) return;
 

@@ -44,4 +44,20 @@ public class AudioManager : MonoBehaviour
         Sound sound = Array.Find(sounds, sound => sound.name == name);
         sound.source.Stop();
     }
+
+    public void Pause(string name){
+        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        sound.source.Pause();
+    }
+
+    public void StopBreathing(){
+        Pause("BreathingSlow");
+        Pause("Running");
+        MyCustomAi.Instance.StopBreathing();
+    }
+
+    public void ResumeBreathing(){
+        Play("BreathingSlow");
+        MyCustomAi.Instance.StartBreathing();
+    }
 }

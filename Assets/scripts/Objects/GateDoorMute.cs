@@ -4,18 +4,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GateDoor : MonoBehaviour
+public class GateDoorMute : MonoBehaviour
 {
-    public static GateDoor Instance;
+    public static GateDoorMute Instance;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void OpenGate(){
+    public void OpenGateMute(){
         gameObject.SetActive(false);
         gameObject.GetComponent<Animator>().SetBool("openGate", true);
-        FindObjectOfType<AudioManager>().Play("GateOpening");
     }
 }

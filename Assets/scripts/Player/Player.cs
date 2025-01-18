@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
     public float playerSpeed = 3f;
     public GameObject Detection;
     public bool isEnemyClose;
-    public bool EndOfTheGame = false;
-    public Canvas EndView;
 
     private GameObject itemInRange;
     private GameObject pillarInRange;
@@ -178,8 +176,7 @@ public class Player : MonoBehaviour
     {
         if(other.tag == "End"){
             Debug.Log("reached the end");
-            EndOfTheGame = true;
-            PauseManager.Instance.DisplayEndView();
+            //insert End credits here
         }
 
         if (other.gameObject.name == "WarnPlayerRadius")

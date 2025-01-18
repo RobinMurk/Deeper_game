@@ -8,12 +8,13 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenuUI; // Optional reference to the Pause Menu Canvas
     public GameObject LighterFluidBar;
     public GameObject Inventory;
+    public GameObject EndView;
     private bool isPaused = false; // Tracks whether the game is paused
 
     void Update()
     {
         // Toggle pause when the Escape key is pressed
-        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused && !Player.Instance.EndOfTheGame)
         {
             if (isPaused)
             {
@@ -75,5 +76,11 @@ public class PauseManager : MonoBehaviour
     public bool IsPaused()
     {
         return isPaused;
+    }
+
+    public void DisplayEndView()
+    {
+        PauseGame();
+        EndView.SetActive(true);
     }
 }

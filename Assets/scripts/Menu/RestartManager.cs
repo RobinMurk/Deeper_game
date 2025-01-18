@@ -9,4 +9,11 @@ public class RestartManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("level1");
     }
+
+    public void MainMenuScene()
+    {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
+    }
 }

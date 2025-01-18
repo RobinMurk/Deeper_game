@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     public GameObject LighterFluidBar;
     public GameObject Inventory;
     private bool isPaused = false; // Tracks whether the game is paused
+    public GameObject EndView;
 
     void Update()
     {
@@ -75,5 +76,23 @@ public class PauseManager : MonoBehaviour
     public bool IsPaused()
     {
         return isPaused;
+    }
+
+    public void DisplayEndView()
+    {
+        if (pauseMenuUI == null) return;
+        AudioManager.Instance.StopBreathing();
+        Tutorial.Instance.TurnOff();
+
+        LighterFluidBar.SetActive(false);
+        Inventory.SetActive(false);
+        Time.timeScale = 0; // Freeze the game
+        isPaused = true;
+
+        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+        Cursor.visible = true; // Show the cursor
+
+
+        EndView.SetActive(true);
     }
 }
